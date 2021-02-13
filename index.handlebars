@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title>Mooditude</title>
+	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1 style="text-align:center">How are you feeling?</h1>
+	<style>
+		textarea {
+ 			width: 90%;
+  			font-size: 1.5em;
+  			text-align: left;
+  			border: 1px solid #f7f7f7;
+  			resize: none;
+  			box-sizing: border-box;
+		}
+
+		#grat_clr {
+			position: absolute;
+			right: 5%;
+			top: 45%;
+			width: 5%;
+			height: 15%;
+			border: 1px solid #f7f7f7;
+		}
+
+		#container {
+  			position: relative;
+  			background-color: #f7f7f7;
+  			border: 5px;
+  			padding: 5px;
+  			margin: 5px;
+		}
+
+		.button {
+			position: absolute;
+			right: 40px;
+  			display: inline-block;
+  			padding: 10px 25px;
+  			font-size: 16px;
+  			cursor: pointer;
+  			text-align: center;
+  			text-decoration: none;
+  			outline: none;
+  			color: #000;
+  			background-color: #aaa;
+  			border: none;
+  			border-radius: 5px;
+  			box-shadow: 4px 4px 7px 2px #999;
+		}
+
+		.button:hover {
+			background-color: #787878
+		}
+
+		.button:active {
+  			background-color: #787878;
+  			box-shadow: 4px 4px 7px 2px #666;
+  			transform: translateY(4px);
+		}
+
+		.icon::before{
+      		adding-right: 10px;
+      		font-family: "FontAwesome 5 Free"
+    	}
+
+    	.i1::before{
+      		content: "\f111";
+      		font-weight: 900;
+    	}
+    	.i2::before{
+      		content: "\f111";
+      		font-weight: 900;
+    	}
+    	.i3::before{
+      		content: "\f111";
+      		font-weight: 900;
+    	}
+    	.i4::before{
+      		content: "\f111";
+      		font-weight: 900;
+    	}
+	</style>
+	<div id="container">
+		<form>
+			<textarea cols="100" rows="5">
+				
+			</textarea>
+			<select name="grat_clr" id="grat_clr">
+    			<option value="blue"><span class="icon i1"></span>Blue</option>
+    			<option value="red"><span class="icon i1">R</span>ed</option>
+    			<option value="green"><span class="icon i1"></span>Green</option>
+    			<option value="yellow"><span class="icon i1"></span>Yellow</option>
+  			</select>
+		</form>
+	</div>
+	<br>
+	<i class="fas fa-circle"></i>
+	<button class="button"><b>Add</b></button>
+</body>
+</html>
