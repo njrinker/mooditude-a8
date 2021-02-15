@@ -1,0 +1,88 @@
+    textarea {
+ 		  width: 70%;
+  		font-size: 1.5em;
+  		text-align: left;
+  		border: 1px solid #f7f7f7;
+  		resize: none;
+  		box-sizing: border-box;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+		}
+
+		#grat_clr {
+			position: absolute;
+			right: 5%;
+			top: 45%;
+			width: 10%;
+			height: 15%;
+			border: 1px solid #f7f7f7;
+      background-color: #f7f7f7;
+		}
+
+		#container {
+  		position: relative;
+  		background-color: #f7f7f7;
+  		border: 5px solid #999;
+  		padding: 5px;
+  		margin: 5px;
+		}
+
+		.button {
+			position: absolute;
+  		display: inline-block;
+  		padding: 10px 25px;
+  		font-size: 16px;
+  		cursor: pointer;
+  		text-align: center;
+  		text-decoration: none;
+  		outline: none;
+  		color: #000;
+  		background-color: #aaa;
+  		border: none;
+  		border-radius: 5px;
+  		box-shadow: 4px 4px 7px 2px #999;
+		}
+
+		.button:hover {
+			background-color: #787878
+		}
+
+		.button:active {
+  		background-color: #787878;
+  		box-shadow: 4px 4px 7px 2px #666;
+  		transform: translateY(4px);
+		}
+
+    .b_right {
+      right: 5%;
+    }
+
+    .b_left {
+      left: 5%;
+    }
+
+    .b_bottom {
+      bottom: 5%;
+    }
+
+    .fas option {
+      font-weight: 900;
+    }
+/*
+    .i1 {
+      color: blue;
+    }
+
+    .i2 {
+      color: red;
+    }
+
+    .i3 {
+      color: green;
+    }
+
+    .i4 {
+      color: yellow;
+    }
+*/
