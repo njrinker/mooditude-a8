@@ -1,4 +1,4 @@
-    #mood {
+    .mood {
  		  width: 70%;
   		font-size: 1.5em;
   		text-align: left;
@@ -23,7 +23,17 @@
       position: absolute;
     }
 
-		#grat_clr {
+    .time {
+      position: absolute;
+      left: 5%;
+      top: 45%;
+      width: 10%;
+      height: 15%;
+      border: 1px solid #f7f7f7;
+      background-color: #f7f7f7;
+    }
+
+		.grat_clr {
 			position: absolute;
 			right: 5%;
 			top: 45%;
@@ -33,7 +43,7 @@
       background-color: #f7f7f7;
 		}
 
-		#container {
+		.container {
   		position: relative;
   		background-color: #f7f7f7;
   		border: 5px solid #999;
@@ -46,8 +56,11 @@
       width: 95%;
       display: block;
       position: fixed;
-      bottom: 5%;
       z-index: 100;
+    }
+
+    .hbutton {
+      border: none;
     }
 
 		.button {
@@ -89,8 +102,22 @@
       left: 5%;
     }
 
+    .b_top {
+      top: 5%
+    }
+
+    .b_bottom {
+      bottom: 5%;
+    }
+
     .fas option {
       font-weight: 900;
+    }
+
+    #ih {
+      position: absolute;
+      left: 5%;
+      top: 35%;
     }
 /*
     .i1 {
