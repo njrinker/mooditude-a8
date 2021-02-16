@@ -4,16 +4,31 @@
 	<title>Mooditude</title>
   <link href="/css/style.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
+<!--  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $('.add').on('click', add);
+    function add() {
+      var new_field = "<div class="container"><form><textarea class="mood" cols="100" rows="5" required></textarea><select name="grat_clr" class="grat_clr" class="fas" required><option value="" selected disabled hidden>Choose here</option><option value="fas fa-circle" class="i1">&#xf111 Sad</option><option value="fas fa-circle" class="i2">&#xf111 Angry</option><option value="fas fa-circle" class="i3">&#xf111 Energetic</option><option value="fas fa-circle" class="i4">&#xf111 Happy</option><option value="fas fa-circle" class="i5">&#xf111 Motivated</option><option value="fas fa-circle" class="i6">&#xf111 Depressed</option></select></form></div>";
+      $("#btn1").prepend(new_field);
+    }
+</script>
+-->
 </head>
 <body>
-	<h1 style="text-align:center">How are you feeling?</h1>
-  <br>
-	<div id="container">
+  <div class="header float">
+    <button class="hbutton" onclick="location.href='html/title.html'"><i class="fas fa-home fa-3x" id="ih"></i></button>
+	  <h1 style="text-align:center">How are you feeling?</h1>
+  </div>
+  <br><br><br><br><br><br>
+  <div class="entry">
+	<div class="container">
 		<form>
-			<textarea id="mood" cols="100" rows="5" required>
+      <input type="time" class="time">
+			<textarea class="mood" cols="100" rows="5" required>
 				
 			</textarea>
-			<select name="grat_clr" id="grat_clr" class="fas" required>
+			<select name="grat_clr" class="grat_clr fas" required>
           <option value="" selected disabled hidden>Choose here</option>
           <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
     			<option value="fas fa-circle" class="i2">&#xf111 Angry</option>
@@ -24,12 +39,13 @@
   			</select>
 		</form>
 	</div>
-  <div id="container">
+  <div class="container">
     <form>
-      <textarea id="mood" cols="100" rows="5">
+      <input type="time" class="time">
+      <textarea class="mood" cols="100" rows="5">
         
       </textarea>
-      <select name="grat_clr" id="grat_clr" class="fas">
+      <select name="grat_clr" class="grat_clr fas">
           <option value="" selected disabled hidden>Choose here</option>
           <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
           <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
@@ -40,12 +56,13 @@
         </select>
     </form>
   </div>
-  <div id="container">
+  <div class="container">
     <form>
-      <textarea id="mood" cols="100" rows="5">
+      <input type="time" class="time">
+      <textarea class="mood" cols="100" rows="5">
         
       </textarea>
-      <select name="grat_clr" id="grat_clr" class="fas">
+      <select name="grat_clr" class="grat_clr fas">
           <option value="" selected disabled hidden>Choose here</option>
           <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
           <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
@@ -56,12 +73,13 @@
         </select>
     </form>
   </div>
-  <div id="container">
+  <div class="container">
     <form>
-      <textarea id="mood" cols="100" rows="5">
+      <input type="time" class="time">
+      <textarea class="mood" cols="100" rows="5">
         
       </textarea>
-      <select name="grat_clr" id="grat_clr" class="fas">
+      <select name="grat_clr" class="grat_clr fas">
           <option value="" selected disabled hidden>Choose here</option>
           <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
           <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
@@ -72,12 +90,13 @@
         </select>
     </form>
   </div>
-  <div id="container">
+  <div class="container">
     <form>
-      <textarea id="mood" cols="100" rows="5">
+      <input type="time" class="time">
+      <textarea class="mood" cols="100" rows="5">
         
       </textarea>
-      <select name="grat_clr" id="grat_clr" class="fas">
+      <select name="grat_clr" class="grat_clr fas">
           <option value="" selected disabled hidden>Choose here</option>
           <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
           <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
@@ -87,21 +106,12 @@
           <option value="fas fa-circle" class="i6">&#xf111 Depressed</option>
         </select>
     </form>
+  </div>
   </div>
 	<br>
-	<button class="button b_right fa-lg disabled" onclick="myFunction()"><b>Add </b><i class="fas fa-plus"></i></button>
+	<button class="button b_right fa-lg" id="btn1" onclick="add"><b>Add </b><i class="fas fa-plus"></i></button>
   <br><br><br><br><br><br><br><br>
-<!--
-  <script>
-    function myFunction() {
-      var x = document.createElement("FORM");
-      x.setAttribute("type", "time");
-      x.setAttribute("value", "21:35:09");
-      document.body.appendChild(x);
-    }
-  </script>
--->
-  <div class="fas float">
+  <div class="fas float b_bottom">
     <button class="button b_left fa-lg" onclick="location.href='html/title.html'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
     <button class="button b_right fa-lg" onclick="location.href='html/gratitude.html'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
   </div>
