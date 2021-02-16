@@ -1,4 +1,4 @@
-    textarea {
+    #mood {
  		  width: 70%;
   		font-size: 1.5em;
   		text-align: left;
@@ -9,6 +9,19 @@
       margin-left: auto;
       margin-right: auto;
 		}
+
+    .grat {
+      width: 90%;
+      font-size: 2em;
+      box-sizing: border-box;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    label {
+      position: absolute;
+    }
 
 		#grat_clr {
 			position: absolute;
@@ -26,7 +39,16 @@
   		border: 5px solid #999;
   		padding: 5px;
   		margin: 5px;
+      
 		}
+
+    .float {
+      width: 95%;
+      display: block;
+      position: fixed;
+      bottom: 5%;
+      z-index: 100;
+    }
 
 		.button {
 			position: absolute;
@@ -54,16 +76,17 @@
   		transform: translateY(4px);
 		}
 
+    .disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
     .b_right {
       right: 5%;
     }
 
     .b_left {
       left: 5%;
-    }
-
-    .b_bottom {
-      bottom: 5%;
     }
 
     .fas option {
@@ -84,5 +107,13 @@
 
     .i4 {
       color: yellow;
+    }
+
+    .i5 {
+      color: purple;
+    }
+
+    .i6 {
+      color: black;
     }
 */
