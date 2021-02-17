@@ -4,16 +4,8 @@
 	<title>Mooditude</title>
   <link href="/css/style.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
-<!--  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $('.add').on('click', add);
-    function add() {
-      var new_field = "<div class="container"><form><textarea class="mood" cols="100" rows="5" required></textarea><select name="grat_clr" class="grat_clr" class="fas" required><option value="" selected disabled hidden>Choose here</option><option value="fas fa-circle" class="i1">&#xf111 Sad</option><option value="fas fa-circle" class="i2">&#xf111 Angry</option><option value="fas fa-circle" class="i3">&#xf111 Energetic</option><option value="fas fa-circle" class="i4">&#xf111 Happy</option><option value="fas fa-circle" class="i5">&#xf111 Motivated</option><option value="fas fa-circle" class="i6">&#xf111 Depressed</option></select></form></div>";
-      $("#btn1").prepend(new_field);
-    }
-</script>
--->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="/js/mood.js"></script>
 </head>
 <body>
   <div class="header float">
@@ -22,94 +14,10 @@
   </div>
   <br><br><br><br><br><br>
   <div class="entry">
-	<div class="container">
-		<form>
-      <input type="time" class="time">
-			<textarea class="mood" cols="100" rows="5" required>
-				
-			</textarea>
-			<select name="grat_clr" class="grat_clr fas" required>
-          <option value="" selected disabled hidden>Choose here</option>
-          <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
-    			<option value="fas fa-circle" class="i2">&#xf111 Angry</option>
-    			<option value="fas fa-circle" class="i3">&#xf111 Energetic</option>
-    			<option value="fas fa-circle" class="i4">&#xf111 Happy</option>
-          <option value="fas fa-circle" class="i5">&#xf111 Motivated</option>
-          <option value="fas fa-circle" class="i6">&#xf111 Depressed</option>
-  			</select>
-		</form>
-	</div>
-  <div class="container">
-    <form>
-      <input type="time" class="time">
-      <textarea class="mood" cols="100" rows="5">
-        
-      </textarea>
-      <select name="grat_clr" class="grat_clr fas">
-          <option value="" selected disabled hidden>Choose here</option>
-          <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
-          <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
-          <option value="fas fa-circle" class="i3">&#xf111 Energetic</option>
-          <option value="fas fa-circle" class="i4">&#xf111 Happy</option>
-          <option value="fas fa-circle" class="i5">&#xf111 Motivated</option>
-          <option value="fas fa-circle" class="i6">&#xf111 Depressed</option>
-        </select>
-    </form>
-  </div>
-  <div class="container">
-    <form>
-      <input type="time" class="time">
-      <textarea class="mood" cols="100" rows="5">
-        
-      </textarea>
-      <select name="grat_clr" class="grat_clr fas">
-          <option value="" selected disabled hidden>Choose here</option>
-          <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
-          <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
-          <option value="fas fa-circle" class="i3">&#xf111 Energetic</option>
-          <option value="fas fa-circle" class="i4">&#xf111 Happy</option>
-          <option value="fas fa-circle" class="i5">&#xf111 Motivated</option>
-          <option value="fas fa-circle" class="i6">&#xf111 Depressed</option>
-        </select>
-    </form>
-  </div>
-  <div class="container">
-    <form>
-      <input type="time" class="time">
-      <textarea class="mood" cols="100" rows="5">
-        
-      </textarea>
-      <select name="grat_clr" class="grat_clr fas">
-          <option value="" selected disabled hidden>Choose here</option>
-          <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
-          <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
-          <option value="fas fa-circle" class="i3">&#xf111 Energetic</option>
-          <option value="fas fa-circle" class="i4">&#xf111 Happy</option>
-          <option value="fas fa-circle" class="i5">&#xf111 Motivated</option>
-          <option value="fas fa-circle" class="i6">&#xf111 Depressed</option>
-        </select>
-    </form>
-  </div>
-  <div class="container">
-    <form>
-      <input type="time" class="time">
-      <textarea class="mood" cols="100" rows="5">
-        
-      </textarea>
-      <select name="grat_clr" class="grat_clr fas">
-          <option value="" selected disabled hidden>Choose here</option>
-          <option value="fas fa-circle" class="i1">&#xf111 Sad</option>
-          <option value="fas fa-circle" class="i2">&#xf111 Angry</option>
-          <option value="fas fa-circle" class="i3">&#xf111 Energetic</option>
-          <option value="fas fa-circle" class="i4">&#xf111 Happy</option>
-          <option value="fas fa-circle" class="i5">&#xf111 Motivated</option>
-          <option value="fas fa-circle" class="i6">&#xf111 Depressed</option>
-        </select>
-    </form>
-  </div>
+    
   </div>
 	<br>
-	<button class="button b_right fa-lg" id="btn1" onclick="add"><b>Add </b><i class="fas fa-plus"></i></button>
+	<button class="button b_right fa-lg" id="btn1"><b>Add </b><i class="fas fa-plus"></i></button>
   <br><br><br><br><br><br><br><br>
   <div class="fas float b_bottom">
     <button class="button b_left fa-lg" onclick="location.href='html/title.html'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
