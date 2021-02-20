@@ -1,14 +1,14 @@
 'use strict';
-
+//Initialize index page
 $(document).ready(function() {
 	initializePage();
 })
-
+//Add form at page initialization
 function initializePage() {
 	addForm();
 	$("#btn1").click(addForm);
 }
-
+//Create a new form when the add button is pressed.	Needs JSON integration.
 function addForm() {
 	var new_field = document.createElement("div");
 	new_field.setAttribute("class", "container");
@@ -39,7 +39,7 @@ function addForm() {
 
     $(".entry").append(new_field);
 }
-
+//Helper function to create selector options for the form. Needs to be implemented with a loop and needs to have JSON integration.
 function addOption(select){
 	var option_0 = document.createElement("option");
 	option_0.setAttribute("value", "");
@@ -86,44 +86,3 @@ function addOption(select){
 	select.append(option_5);
 	select.append(option_6);
 }
-	
-/*
-"<div class="container"><form><textarea class="mood" cols="100" rows="5" required></textarea><select name="grat_clr" class="grat_clr" class="fas" required><option value="" selected disabled hidden>Choose here</option><option value="fas fa-circle" class="i1">&#xf111 Sad</option><option value="fas fa-circle" class="i2">&#xf111 Angry</option><option value="fas fa-circle" class="i3">&#xf111 Energetic</option><option value="fas fa-circle" class="i4">&#xf111 Happy</option><option value="fas fa-circle" class="i5">&#xf111 Motivated</option><option value="fas fa-circle" class="i6">&#xf111 Depressed</option></select></form></div>";
-
-var down = document.getElementById("GFG_DOWN"); 
-            function GFG_Fun() { 
-                
-                // Create a form synamically 
-                var form = document.createElement("form"); 
-                form.setAttribute("method", "post"); 
-                form.setAttribute("action", "submit.php"); 
-  
-                // Create an input element for emailID 
-                var ID = document.createElement("input"); 
-                ID.setAttribute("type", "text"); 
-                ID.setAttribute("name", "emailID"); 
-                ID.setAttribute("placeholder", "E-Mail ID"); 
-  
-                // Create an input element for password 
-                var PWD = document.createElement("input"); 
-                PWD.setAttribute("type", "password"); 
-                PWD.setAttribute("name", "password"); 
-                PWD.setAttribute("placeholder", "Password"); 
-  
-                // Create a submit button 
-                var s = document.createElement("input"); 
-                s.setAttribute("type", "submit"); 
-                s.setAttribute("value", "Submit"); 
-  
-                // Append the email_ID input to the form 
-                form.append(ID);  
-                
-                // Append the password to the form 
-                form.append(PWD);  
-                
-                // Append the button to the form 
-                form.append(s);  
-  
-                document.getElementsByTagName("body")[0] 
-               .appendChild(form); 
-            } */
