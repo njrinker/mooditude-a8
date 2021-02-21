@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<!--Header: Has important site data and imports links to external tools-->
+	<title>Mooditude</title>
+  	<link href="/css/style.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<!--All of the displayed content on the webpage is rendered here-->
+<body>
+	<!--Home button and navigation-->
+	<div class="header float">
+    	<button class="hbutton" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
+		<h1 style="text-align:center">What are you grateful for?</h1>
+	</div>
+	<br><br><br><br><br><br>
+	<!--Text inputs are rendered here. Needs to be implemented with a loop and needs to have JSON integration.-->
+	<h2 style="text-align:center">Enter at least 5 things you were grateful for today</h2>
+	<form>	
+		{{#each input}}
+		<div class="container">
+			<label for="grat{{num}}">{{num}}</label>
+			<input type="text" name="grat{{num}}" class="grat" required>
+		</div>
+		{{/each}}
+
+	</form>
+	<!--Main navigation buttons, rendered at the bottom of the screen-->
+	<div class="fas float b_bottom">
+    	<button class="button b_left fa-lg" onclick="location.href='/'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
+    	<button class="button b_right fa-lg" onclick="location.href='/report'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
+	</div>
+</body>
+</html>
