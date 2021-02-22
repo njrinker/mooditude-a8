@@ -5,7 +5,6 @@ $(document).ready(function() {
 })
 //Add form at page initialization
 function initializePage() {
-	addForm();
 	$("#btn1").click(addForm);
 }
 //Create a new form when the add button is pressed.	Needs JSON integration.

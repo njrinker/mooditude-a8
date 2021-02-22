@@ -4,6 +4,7 @@
 	<!--Header: Has important site data and imports links to external tools-->
 	<title>Mooditude</title>
   	<link href="/css/style.css" rel="stylesheet">
+  	<link href="/css/bargraph.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
@@ -16,8 +17,29 @@
 	</div>
 	<!--Here we will have a weekly summary table and a list of things that the user was grateful for this week, but it is just placeholders for now-->
 	<br><br><br><br><br><br>
-	<p>Placeholder Image</p>
-	<i class="fas fa-chart-bar fa-10x"></i>
+	<!--<p>Placeholder Image</p>
+	<i class="fas fa-chart-bar fa-10x"></i>-->
+	<div id="container">
+	<table class="graph">
+	<caption>Here's how you've been feeling this past week</caption>
+	<thead>
+		<tr>
+			<th scope="col">Mood</th>
+			<th scope="col">Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each form}}
+			{{#each mood}}
+				<tr style="height:{{height}}%">
+					<th scope="row">{{mood}}</th>
+					<td style="background:{{color}}"><span>{{height}}%</span></td>
+				</tr>
+			{{/each}}
+		{{/each}}
+	</tbody>
+	</table>
+	</div>
 	<h2 style="text-align:center">Things you were grateful for this week:</h2>
 	<div id="container">
 		<p>1</p>
@@ -26,6 +48,5 @@
 	<div class="fas float b_bottom">
 		<button class="button b_left fa-lg" onclick="location.href='/gratitude'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
 	</div>
-	
 </body>
 </html>
