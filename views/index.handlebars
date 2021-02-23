@@ -12,7 +12,7 @@
 <body>
   <!--Home button and navigation-->
   <div class="header float">
-    <button class="hbutton" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
+    <button class="hbutton" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
 	  <h1 style="text-align:center">How are you feeling?</h1>
   </div>
   <br><br><br><br><br><br>
@@ -21,25 +21,26 @@
     {{#each form}}
       <div class="container">
         <form>
-          <input type="time" class="time">
-          <textarea class="mood" cols="100" rows="7" required="">{{text}}</textarea>
+          <input type="time" class="time" value="{{time}}">
+          <textarea class="mood" id="{{id}}" cols="100" rows="7" required="">{{text}}</textarea>
           <select name="grat_clr" class="grat_clr fas" required="" aria-hidden="true">
-            <option value="" selected="" disabled="" hidden="">Choose here</option>
-            {{#each mood}}
-              <option value="fas fa-circle" id="{{id}}">&#xf111 {{mood}}</option>
-            {{/each}}
+          {{#each mood}}
+            <option value="fas fa-circle" id="{{id}}" style="color: {{color}}" {{selected}} {{disabled}} {{hidden}}>&#xf111 {{mood}}</option>
+          {{/each}}
           </select>
         </form>
       </div>
     {{/each}}
   </div>
 	<br>
+
   <!--Main navigation buttons, rendered at the bottom of the screen-->
+  <!--<button class="button b_left fa-lg" id="btns"><i class="fas fa-save"></i><b> Save</b></button>-->
 	<button class="button b_right fa-lg" id="btn1"><b>Add </b><i class="fas fa-plus"></i></button>
   <br><br><br><br><br><br><br><br>
   <div class="fas float b_bottom">
-    <button class="button b_left fa-lg" onclick="location.href='/title'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
-    <button class="button b_right fa-lg" onclick="location.href='/gratitude'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
+    <button class="button b_left fa-lg" id="btnl" onclick="location.href='/title'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
+    <button class="button b_right fa-lg" id="btnr" onclick="location.href='/gratitude'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
   </div>
 </body>
 </html>

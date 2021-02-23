@@ -29,20 +29,23 @@
 		</tr>
 	</thead>
 	<tbody>
-		{{#each form}}
-			{{#each mood}}
-				<tr style="height:{{height}}%">
-					<th scope="row">{{mood}}</th>
-					<td style="background:{{color}}"><span>{{height}}%</span></td>
-				</tr>
-			{{/each}}
+		{{#each report}}
+			<tr style="height:{{height}}%">
+				<th scope="row">{{mood}}</th>
+				<td style="background:{{color}}"><span>{{height}}%</span></td>
+			</tr>
 		{{/each}}
 	</tbody>
 	</table>
 	</div>
 	<h2 style="text-align:center">Things you were grateful for this week:</h2>
 	<div id="container">
-		<p>1</p>
+		{{#each input}}
+		<div class="container">
+			<label for="grat{{num}}">{{num}}</label>
+			<p>{{text}}</p>
+		</div>
+		{{/each}}
 	</div>
 	<!--Main navigation buttons, rendered at the bottom of the screen-->
 	<div class="fas float b_bottom">

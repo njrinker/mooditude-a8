@@ -1,46 +1,186 @@
 {
 	"form": [
-  	{
+	{
   		"id": "1",
-  		"text": "",
+  		"time": "09:30:00",
+  		"text": "Went for run to wake up!",
   		"mood": [
+    	{
+  			"id": "i0",
+  			"mood": "Choose here",
+  			"color": "black",
+  			"selected": "",
+  			"disabled": "disabled",
+  			"hidden": "hidden"
+  		},
     	{
   			"id": "i1",
   			"mood": "Happy",
   			"color": "yellow",
-  			"height": "85"
+  			"selected": ""
   		},
   		{
   			"id": "i2",
   			"mood": "Energetic",
   			"color": "green",
-  			"height": "23"
+  			"selected": ""
   		},
   		{
   			"id": "i3",
   			"mood": "Motivated",
   			"color": "purple",
-  			"height": "7"
+  			"selected": "selected"
   		},
   		{
   			"id": "i4",
   			"mood": "Angry",
   			"color": "red",
-  			"height": "38"
+  			"selected": ""
   		},
   		{
   			"id": "i5",
   			"mood": "Sad",
   			"color": "blue",
-  			"height": "35"
+  			"selected": ""
   		},
   		{
   			"id": "i6",
   			"mood": "Depressed",
   			"color": "grey",
-  			"height": "30"
+  			"selected": ""
+  		}
+  		]
+  	},
+  	{
+  		"id": "0",
+  		"time": "00:00:00",
+  		"text": "",
+  		"mood": [
+    	{
+  			"id": "i0",
+  			"mood": "Choose here",
+  			"color": "black",
+  			"selected": "selected",
+  			"disabled": "disabled",
+  			"hidden": "hidden"
+  		},
+    	{
+  			"id": "i1",
+  			"mood": "Happy",
+  			"color": "yellow",
+  			"selected": ""
+  		},
+  		{
+  			"id": "i2",
+  			"mood": "Energetic",
+  			"color": "green",
+  			"selected": ""
+  		},
+  		{
+  			"id": "i3",
+  			"mood": "Motivated",
+  			"color": "purple",
+  			"selected": ""
+  		},
+  		{
+  			"id": "i4",
+  			"mood": "Angry",
+  			"color": "red",
+  			"selected": ""
+  		},
+  		{
+  			"id": "i5",
+  			"mood": "Sad",
+  			"color": "blue",
+  			"selected": ""
+  		},
+  		{
+  			"id": "i6",
+  			"mood": "Depressed",
+  			"color": "grey",
+  			"selected": ""
   		}
   		]
   	}
-  	]
+  	],
+  	"report": [
+  	{
+  		"id": "i1",
+  		"mood": "Happy",
+  		"color": "yellow",
+  		"height": "85"
+  	},
+  	{
+  		"id": "i2",
+  		"mood": "Energetic",
+  		"color": "green",
+  		"height": "23"
+  	},
+  	{
+  		"id": "i3",
+  		"mood": "Motivated",
+  		"color": "purple",
+  		"height": "7"
+  	},
+  	{
+  		"id": "i4",
+  		"mood": "Angry",
+  		"color": "red",
+  		"height": "38"
+  	},
+  	{
+  		"id": "i5",
+  		"mood": "Sad",
+  		"color": "blue",
+  		"height": "35"
+  	},
+  	{
+  		"id": "i6",
+  		"mood": "Depressed",
+  		"color": "grey",
+  		"height": "30"
+  	}
+  	],
+  	"input": [
+		{
+			"text": "My dog",
+			"num": "1"
+		},
+		{
+			"text": "A home to live in",
+			"num": "2"
+		},
+		{
+			"text": "A computer to do work on and use for entertainment",
+			"num": "3"
+		},
+		{
+			"text": "",
+			"num": "4"
+		},
+		{
+			"text": "",
+			"num": "5"
+		},
+		{
+			"text": "",
+			"num": "6"
+		},
+		{
+			"text": "",
+			"num": "7"
+		},
+		{
+			"text": "",
+			"num": "8"
+		},
+		{
+			"text": "",
+			"num": "9"
+		},
+		{
+			"text": "",
+			"num": "10"
+		}
+	]
 }

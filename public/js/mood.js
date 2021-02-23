@@ -3,10 +3,17 @@
 $(document).ready(function() {
 	initializePage();
 })
-//Add form at page initialization
+//Page initialization
 function initializePage() {
+	/*$("#btns").click(save);*/
 	$("#btn1").click(addForm);
 }
+
+/*function save() {
+	console.log(5);
+	mood.form.text.push(document.getElementById("1").value);
+}*/
+
 //Create a new form when the add button is pressed.	Needs JSON integration.
 function addForm() {
 	var new_field = document.createElement("div");
