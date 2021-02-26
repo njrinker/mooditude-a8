@@ -7,13 +7,21 @@ $(document).ready(function() {
 function initializePage() {
 	/*$("#btns").click(save);*/
 	$("#btn1").click(addForm);
+	$("#sub_btn").click(checkForm);
 }
 
 /*function save() {
 	console.log(5);
 	mood.form.text.push(document.getElementById("1").value);
 }*/
-
+function checkForm() {
+    var a = document.forms["login_form"]["username_in"].value;
+    var b = document.forms["login_form"]["password_in"].value;
+    if (a && b) {
+    	window.location.href="/";
+    	return false;
+    }
+}
 //Create a new form when the add button is pressed.	Needs JSON integration.
 function addForm() {
 	var new_field = document.createElement("div");

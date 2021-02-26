@@ -8,16 +8,16 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
-<body>
+<body class="lrg_font">
 	<!--Home button and navigation-->
 	<div class="header float">
     	<button class="hbutton" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
 		<h1 style="text-align:center">What are you grateful for?</h1>
 	</div>
-	<br><br><br><br><br><br>
+	<br><br><br>
 	<!--Text inputs are rendered here. Needs to have JSON integration.-->
 	<h2 style="text-align:center">Enter at least 5 things you were grateful for today</h2>
-	<form>	
+	<form style="font-size: xx-large">	
 		{{#each input}}
 		<div class="container">
 			<label for="grat{{num}}">{{num}}</label>

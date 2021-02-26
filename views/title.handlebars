@@ -6,15 +6,26 @@
   	<link href="/css/style.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/mood.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
-<body>
-	<!--Home button and navigation-->
-	<h1 style="text-align:center">title_blank</h1>
-	<!--Main navigation buttons, rendered at the bottom of the screen-->
-	<div class="fas float b_bottom">
-		<button class="button b_right fa-lg" onclick="location.href='/'"><i class="fas fa-arrow-right"></i><b> Next</b></button>
-	</div>
-	
+<body class="lrg_font">
+	<img src="images/logo.png" class="logo">
+	<form action="" name="login_form">
+		<div class="login container">
+			<label for="username" name="username_lbl" class="label">Username</label>
+			<br>
+			<input type="text" name="username_in" class="input" required>
+			<br>
+			<label for="password" name="password_lbl" class="label">Password</label>
+			<br>
+			<input type="text" name="password_in" class="input" required>
+		</div>
+		<br>
+		<!--Main navigation buttons, rendered at the bottom of the screen-->
+		<div class="fas float b_center">
+			<input type="submit" class="button fa-lg" id="sub_btn" value="Submit">
+		</div>
+	</form>	
 </body>
 </html>

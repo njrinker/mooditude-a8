@@ -9,20 +9,20 @@
   <script src="/js/mood.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
-<body>
+<body class="lrg_font">
   <!--Home button and navigation-->
   <div class="header float">
     <button class="hbutton" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
 	  <h1 style="text-align:center">How are you feeling?</h1>
   </div>
-  <br><br><br><br><br><br>
+  <br><br><br><br>
   <!--All of the form items will be rendered here, but intializing them is taken care of in mood.js-->
   <div class="entry">
     {{#each form}}
       <div class="container">
         <form>
           <input type="time" class="time" value="{{time}}">
-          <textarea class="mood" id="{{id}}" cols="100" rows="7" required="">{{text}}</textarea>
+          <textarea class="mood" id="{{id}}" cols="100" rows="1" required="">{{text}}</textarea>
           <select name="grat_clr" class="grat_clr fas" required="" aria-hidden="true">
           {{#each mood}}
             <option value="fas fa-circle" id="{{id}}" style="color: {{color}}" {{selected}} {{disabled}} {{hidden}}>&#xf111 {{mood}}</option>

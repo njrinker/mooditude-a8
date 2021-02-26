@@ -1,56 +1,5 @@
 {
 	"form": [
-	{
-  		"id": "1",
-  		"time": "09:30:00",
-  		"text": "Went for run to wake up!",
-  		"mood": [
-    	{
-  			"id": "i0",
-  			"mood": "Choose here",
-  			"color": "black",
-  			"selected": "",
-  			"disabled": "disabled",
-  			"hidden": "hidden"
-  		},
-    	{
-  			"id": "i1",
-  			"mood": "Happy",
-  			"color": "yellow",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i2",
-  			"mood": "Energetic",
-  			"color": "green",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i3",
-  			"mood": "Motivated",
-  			"color": "purple",
-  			"selected": "selected"
-  		},
-  		{
-  			"id": "i4",
-  			"mood": "Angry",
-  			"color": "red",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i5",
-  			"mood": "Sad",
-  			"color": "blue",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i6",
-  			"mood": "Depressed",
-  			"color": "grey",
-  			"selected": ""
-  		}
-  		]
-  	},
   	{
   		"id": "0",
   		"time": "00:00:00",
@@ -155,31 +104,31 @@
 			"num": "3"
 		},
 		{
-			"text": "",
+			"text": "A good job to work at",
 			"num": "4"
 		},
 		{
-			"text": "",
+			"text": "Friends",
 			"num": "5"
 		},
 		{
-			"text": "",
+			"text": "Family",
 			"num": "6"
 		},
 		{
-			"text": "",
+			"text": "Good Thai food",
 			"num": "7"
 		},
 		{
-			"text": "",
+			"text": "Pencils",
 			"num": "8"
 		},
 		{
-			"text": "",
+			"text": "Coffee",
 			"num": "9"
 		},
 		{
-			"text": "",
+			"text": "A comfy bed",
 			"num": "10"
 		}
 	]

@@ -9,14 +9,14 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
-<body>
+<body class="lrg_font">
 	<!--Home button and navigation-->
 	<div class="header float">
     	<button class="hbutton" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
 		<h1 style="text-align:center">Report</h1>
 	</div>
 	<!--Here we will have a weekly summary table and a list of things that the user was grateful for this week, but it is just placeholders for now-->
-	<br><br><br><br><br><br>
+	<br><br>
 	<!--<p>Placeholder Image</p>
 	<i class="fas fa-chart-bar fa-10x"></i>-->
 	<div id="container">
@@ -39,14 +39,14 @@
 	</table>
 	</div>
 	<h2 style="text-align:center">Things you were grateful for this week:</h2>
-	<div id="container">
+	<div id="container" style="font-size: 20px">
 		{{#each input}}
 		<div class="container">
-			<label for="grat{{num}}">{{num}}</label>
-			<p>{{text}}</p>
+			<p>{{num}}  {{text}}</p>
 		</div>
 		{{/each}}
 	</div>
+	<br><br>
 	<!--Main navigation buttons, rendered at the bottom of the screen-->
 	<div class="fas float b_bottom">
 		<button class="button b_left fa-lg" onclick="location.href='/gratitude'"><i class="fas fa-arrow-left"></i><b> Back</b></button>

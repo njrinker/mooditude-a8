@@ -1,4 +1,39 @@
     /*Styling for textareas in index*/
+    .lrg_font {
+      font-size: x-large;
+    }
+
+    .logo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20%;
+      margin-bottom: 5%;
+      width: 45%;
+    }
+
+    .input {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 40px;
+      width: 375px;
+      font-size: xx-large;
+    }
+
+    .label {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      float: left;
+    }
+
+    .login {
+      max-width: 40%;
+      margin: auto !important;
+      font-size: xx-large;
+    }
+
     .mood {
  		  width: 70%;
   		font-size: 1.5em;
@@ -9,6 +44,7 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
+      height: 200px;
 		}
     /*For text input in gratitude*/
     .grat {
@@ -26,22 +62,24 @@
     /*For time entry in index*/
     .time {
       position: absolute;
-      left: 5%;
+      left: 1%;
       top: 45%;
-      width: 10%;
+      width: 14%;
       height: 15%;
       border: 1px solid #f7f7f7;
       background-color: #f7f7f7;
+      font-size: x-large;
     }
     /*For mood selector in index*/
 		.grat_clr {
 			position: absolute;
-			right: 2%;
+			right: 1%;
 			top: 45%;
-			width: 13%;
+			width: 14%;
 			height: 15%;
 			border: 1px solid #f7f7f7;
       background-color: #f7f7f7;
+      font-size: x-large;
 		}
     /*Generic container object to keep style consistent between different elements*/
 		.container {
@@ -62,6 +100,7 @@
     /*For home button*/
     .hbutton {
       border: none;
+      display: block;
     }
     /*Generic button style and customization*/
 		.button {
@@ -110,6 +149,10 @@
 
     .b_bottom {
       bottom: 5%;
+    }
+
+    .b_center {
+      left: 41%;
     }
     /*Renders icons correctly*/
     .fas option {
