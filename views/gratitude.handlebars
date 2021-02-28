@@ -6,6 +6,7 @@
   	<link href="/css/style.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/mood.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
 <body class="lrg_font">
@@ -17,14 +18,14 @@
 	<br><br><br>
 	<!--Text inputs are rendered here. Needs to have JSON integration.-->
 	<h2 style="text-align:center">Enter at least 5 things you were grateful for today</h2>
-	<form style="font-size: xx-large">	
+	<form id="gratForm" style="font-size: xx-large">	
 		{{#each input}}
 		<div class="container">
-			<label for="grat{{num}}">{{num}}</label>
-			<input type="text" name="grat{{num}}" class="grat" required>
+			<label for="grat{{num}}" id="grat_lbl{{num}}">{{num}}</label>
+			<input type="text" name="grat{{num}}" id="grat{{num}}" class="grat" value="{{text}}">
 		</div>
 		{{/each}}
-
+		<button type="submit" class="button b_left">Save</button>
 	</form>
 	<!--Main navigation buttons, rendered at the bottom of the screen-->
 	<div class="fas float b_bottom">

@@ -6,7 +6,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
+var handlebars = require('express3-handlebars');
 
 var index = require('./routes/index');
 var gratitude = require('./routes/gratitude');
@@ -41,6 +41,8 @@ app.get('/', index.view);
 app.get('/gratitude', gratitude.view);
 app.get('/report', report.view);
 app.get('/title', title.view);
+//app.post('/addMood', index.addMood);
+app.post('/addGrat', gratitude.addGrat);
 // Example route
 // app.get('/users', user.list);
 

@@ -1,36 +1,12 @@
+var data = require('../grat.json');
 exports.view = function(req, res){
-  res.render("gratitude", {
-  	"input": [
-  	{
-  		"num": "1"
-  	},
-  	{
-  		"num": "2"
-  	},
-  	{
-  		"num": "3"
-  	},
-  	{
-  		"num": "4"
-  	},
-  	{
-  		"num": "5"
-  	},
-  	{
-  		"num": "6"
-  	},
-  	{
-  		"num": "7"
-  	},
-  	{
-  		"num": "8"
-  	},
-  	{
-  		"num": "9"
-  	},
-  	{
-  		"num": "10"
-  	},
-  	]
-  });
+  res.render('gratitude', data)
+};
+
+exports.addGrat = function(req, res){
+  var gratData = req.body;
+  const num = req.body.num - 1;
+  console.log(gratData);
+  data.input.splice(num, 1, gratData);
+  res.send(gratData);
 };

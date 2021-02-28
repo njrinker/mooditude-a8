@@ -5,15 +5,25 @@ $(document).ready(function() {
 })
 //Page initialization
 function initializePage() {
-	/*$("#btns").click(save);*/
 	$("#btn1").click(addForm);
 	$("#sub_btn").click(checkForm);
+	initGratForm();
 }
 
-/*function save() {
-	console.log(5);
-	mood.form.text.push(document.getElementById("1").value);
-}*/
+function initGratForm() {
+  // add your code here
+  $('#gratForm').submit(function(e) {
+  	e.preventDefault();
+  	console.log("Submitting gratForm...");
+  	var i;
+  	for (i = 1; i <= 10; i++) {
+  		var gratText = $('#grat' + i).val();
+  		var gratNum = document.getElementById('grat_lbl' + i).innerHTML;
+  		$.post('addGrat', { text: gratText, num: gratNum});
+  	}
+  });
+}
+
 function checkForm() {
     var a = document.forms["login_form"]["username_in"].value;
     var b = document.forms["login_form"]["password_in"].value;
