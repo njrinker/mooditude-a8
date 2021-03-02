@@ -2,16 +2,43 @@
 //Initialize index page
 $(document).ready(function() {
 	initializePage();
+	//fillPage();
+	initSelect();
 })
 //Page initialization
 function initializePage() {
 	$("#btn1").click(addForm);
 	$("#sub_btn").click(checkForm);
+	initMoodForm();
 	initGratForm();
 }
-
+//Function to save user input from mood page
+function initMoodForm() {
+	$('#moodForm').submit(function(e) {
+		e.preventDefault();
+		console.log("Submitting moodForm...");
+		var i;
+		for (i = 0; i < 1; i++) {
+  			var moodTime = $('#time' + i).val();
+  			var moodText = document.getElementById('textarea' + i).value;
+  			var moodOpt = document.getElementById('select' + i).selectedIndex;
+  			if (moodText.length != 0) {
+  				$.post('addMood', { time: moodTime, text: moodText, opt: moodOpt});
+  			}
+  	}
+  });
+}
+//Function to take care of the pesky selectors in the mood forms
+function initSelect() {
+	var i;
+	var selectors = document.querySelectorAll("select");
+  	for (i = 0; i < selectors.length; i++) {
+  		console.log("Here");
+  		addOption(selectors[i]);
+  	}
+}
+//Function to save user input from gratitude page and sends it to be displayed on report page
 function initGratForm() {
-  // add your code here
   $('#gratForm').submit(function(e) {
   	e.preventDefault();
   	console.log("Submitting gratForm...");
@@ -20,10 +47,13 @@ function initGratForm() {
   		var gratText = $('#grat' + i).val();
   		var gratNum = document.getElementById('grat_lbl' + i).innerHTML;
   		$.post('addGrat', { text: gratText, num: gratNum});
+  		if (gratText.length != 0) {
+  			$.post('fillReport', {text: gratText});
+  		}
   	}
   });
 }
-
+//Checks the submission of the login (will be deprecated when login is replaced)
 function checkForm() {
     var a = document.forms["login_form"]["username_in"].value;
     var b = document.forms["login_form"]["password_in"].value;
@@ -32,6 +62,15 @@ function checkForm() {
     	return false;
     }
 }
+
+/*function fillPage() {
+	$.getJSON("mood.json", loadData);
+}
+
+function loadData(res) {
+	console.log(res);
+}*/
+
 //Create a new form when the add button is pressed.	Needs JSON integration.
 function addForm() {
 	var new_field = document.createElement("div");
@@ -40,13 +79,14 @@ function addForm() {
 	var time = document.createElement("input");
 	time.setAttribute("type", "time");
 	time.setAttribute("class", "time");
+	time.setAttribute("value", "00:00:00");
 
 	var form = document.createElement("form");
 
 	var text = document.createElement("textarea");
 	text.setAttribute("class", "mood");
 	text.setAttribute("cols", "100");
-	text.setAttribute("rows", "7");
+	text.setAttribute("rows", "1");
 	text.setAttribute("required", "");
 
 	var select = document.createElement("select");
@@ -61,45 +101,56 @@ function addForm() {
 	form.append(select);
 	new_field.append(form);
 
-    $(".entry").append(new_field);
+    $(".entry").prepend(new_field);
 }
-//Helper function to create selector options for the form. Needs to be implemented with a loop and needs to have JSON integration.
-function addOption(select){
+//Helper function to create selector options for the form.
+function addOption(select) {
+	var i;
+	var storage = [];
+	var moods = ["Happy", "Energetic", "Motivated", "Angry", "Sad", "Depressed"]
 	var option_0 = document.createElement("option");
 	option_0.setAttribute("value", "");
 	option_0.setAttribute("selected", "");
 	option_0.setAttribute("disabled", "");
 	option_0.setAttribute("hidden", "");
-	option_0.innerHTML = "Choose here";
-
-	var option_1 = document.createElement("option");
+	option_0.setAttribute("clrid", "i0");
+	option_0.innerHTML = "&#xf111 Choose";
+	select.append(option_0);
+	for (i = 0; i < moods.length; i++) {
+		storage[i] = document.createElement("option");
+		storage[i].setAttribute("value", "fas fa-circle");
+		storage[i].setAttribute("clrid", "i" + i);
+		storage[i].innerHTML = "&#xf111 " + moods[i];
+		select.append(storage[i]);
+	}
+	/*var option_1 = document.createElement("option");
 	option_1.setAttribute("value", "fas fa-circle");
-	option_1.setAttribute("id", "i1");
+	option_1.setAttribute("clrid", "i1");
 	option_1.innerHTML = "&#xf111 Sad";
 
 	var option_2 = document.createElement("option");
 	option_2.setAttribute("value", "fas fa-circle");
-	option_2.setAttribute("id", "i2");
+	option_2.setAttribute("clrid", "i2");
 	option_2.innerHTML = "&#xf111 Angry";
 
 	var option_3 = document.createElement("option");
 	option_3.setAttribute("value", "fas fa-circle");
-	option_3.setAttribute("id", "i3");
+	option_3.setAttribute("clrid", "i3");
 	option_3.innerHTML = "&#xf111 Energetic";
 
 	var option_4 = document.createElement("option");
 	option_4.setAttribute("value", "fas fa-circle");
-	option_4.setAttribute("id", "i4");
+	option_4.setAttribute("clrid", "i4");
 	option_4.innerHTML = "&#xf111 Happy";
 
 	var option_5 = document.createElement("option");
 	option_5.setAttribute("value", "fas fa-circle");
-	option_5.setAttribute("id", "i5");
+	option_5.setAttribute("clrid", "i5");
 	option_5.innerHTML = "&#xf111 Motivated";
 
 	var option_6 = document.createElement("option");
 	option_6.setAttribute("value", "fas fa-circle");
-	option_6.setAttribute("id", "i6");
+	option_6.setAttribute("clrid", "i6");
 	option_6.innerHTML = "&#xf111 Depressed";
 
 	select.append(option_0);
@@ -108,5 +159,5 @@ function addOption(select){
 	select.append(option_3);
 	select.append(option_4);
 	select.append(option_5);
-	select.append(option_6);
+	select.append(option_6);*/
 }

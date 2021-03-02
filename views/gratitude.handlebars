@@ -16,7 +16,7 @@
 		<h1 style="text-align:center">What are you grateful for?</h1>
 	</div>
 	<br><br><br>
-	<!--Text inputs are rendered here. Needs to have JSON integration.-->
+	<!--Text inputs are rendered here.-->
 	<h2 style="text-align:center">Enter at least 5 things you were grateful for today</h2>
 	<form id="gratForm" style="font-size: xx-large">	
 		{{#each input}}
@@ -25,7 +25,7 @@
 			<input type="text" name="grat{{num}}" id="grat{{num}}" class="grat" value="{{text}}">
 		</div>
 		{{/each}}
-		<button type="submit" class="button b_left">Save</button>
+		<button type="submit" class="button b_left" style="font-size: xx-large"><i class="fas fa-save"></i><b>Save</b></button>
 	</form>
 	<!--Main navigation buttons, rendered at the bottom of the screen-->
 	<div class="fas float b_bottom">

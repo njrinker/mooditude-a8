@@ -7,6 +7,7 @@
   	<link href="/css/bargraph.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/mood.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
 <body class="lrg_font">
@@ -15,10 +16,11 @@
     	<button class="hbutton" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
 		<h1 style="text-align:center">Report</h1>
 	</div>
-	<!--Here we will have a weekly summary table and a list of things that the user was grateful for this week, but it is just placeholders for now-->
+	<!--Here we will have a weekly summary table and a list of things that the user was grateful for this week-->
 	<br><br>
 	<div id="container">
 	<table class="graph">
+	<!--Graph initialization-->
 	<caption>Here's how you've been feeling this past week</caption>
 	<thead>
 		<tr>
@@ -28,19 +30,22 @@
 	</thead>
 	<tbody>
 		{{#each report}}
-			<tr style="height:{{height}}%">
-				<th scope="row">{{mood}}</th>
-				<td style="background:{{color}}"><span>{{height}}%</span></td>
-			</tr>
+			{{#unless @first}}
+				<tr style="height:{{height}}%">
+					<th scope="row">{{mood}}</th>
+					<td style="background:{{color}}"><span>{{height}}%</span></td>
+				</tr>
+			{{/unless}}
 		{{/each}}
 	</tbody>
 	</table>
 	</div>
+	<!--Gratitude list initialization-->
 	<h2 style="text-align:center">Things you were grateful for this week:</h2>
 	<div id="container" style="font-size: 20px">
 		{{#each input}}
 		<div class="container">
-			<p>{{num}}  {{text}}</p>
+			<p>{{text}}</p>
 		</div>
 		{{/each}}
 	</div>

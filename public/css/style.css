@@ -2,7 +2,7 @@
     .lrg_font {
       font-size: x-large;
     }
-
+    /*Styling for logo*/
     .logo {
       display: block;
       margin-left: auto;
@@ -11,7 +11,7 @@
       margin-bottom: 5%;
       width: 45%;
     }
-
+    /*Styling for input form on title screen (will be deprecated when login is replaced)*/
     .input {
       display: block;
       margin-left: auto;
@@ -20,20 +20,20 @@
       width: 375px;
       font-size: xx-large;
     }
-
+    /*Styling for label on the input form on title screen (will be deprecated when login is replaced)*/
     .label {
       display: block;
       margin-left: auto;
       margin-right: auto;
       float: left;
     }
-
+    /*Styling for login container on title screen (will be deprecated when login is replaced)*/
     .login {
       max-width: 40%;
       margin: auto !important;
       font-size: xx-large;
     }
-
+    /*Styling for forms on the mood entry screen*/
     .mood {
  		  width: 70%;
   		font-size: 1.5em;
@@ -55,7 +55,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     label {
       position: absolute;
     }
@@ -88,7 +87,6 @@
   		border: 5px solid #999;
   		padding: 5px;
   		margin: 5px;
-      
 		}
     /*Keeps elements static and "floating" above the page while it's scrolled*/
     .float {
@@ -118,39 +116,31 @@
   		border-radius: 5px;
   		box-shadow: 4px 4px 7px 2px #999;
 		}
-
 		.button:hover {
 			background-color: #787878
 		}
-
 		.button:active {
   		background-color: #787878;
   		box-shadow: 4px 4px 7px 2px #666;
   		transform: translateY(4px);
 		}
-
     .disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
-
     /*Button positioning (or really any positioning)*/
     .b_right {
       right: 5%;
     }
-
     .b_left {
       left: 5%;
     }
-
     .b_top {
       top: 5%
     }
-
     .b_bottom {
       bottom: 5%;
     }
-
     .b_center {
       left: 41%;
     }
@@ -164,28 +154,3 @@
       left: 5%;
       top: 35%;
     }
-/*
-    #i1 {
-      color: blue;
-    }
-
-    #i2 {
-      color: red;
-    }
-
-    #i3 {
-      color: green;
-    }
-
-    #i4 {
-      color: yellow;
-    }
-
-    #i5 {
-      color: purple;
-    }
-
-    #i6 {
-      color: black;
-    }
-*/

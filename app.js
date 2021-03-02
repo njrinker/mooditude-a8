@@ -12,8 +12,6 @@ var index = require('./routes/index');
 var gratitude = require('./routes/gratitude');
 var report = require('./routes/report');
 var title = require('./routes/title');
-// Example route
-// var user = require('./routes/user');
 
 var app = express();
 
@@ -41,10 +39,10 @@ app.get('/', index.view);
 app.get('/gratitude', gratitude.view);
 app.get('/report', report.view);
 app.get('/title', title.view);
-//app.post('/addMood', index.addMood);
+app.post('/addMood', index.addMood);
+app.post('/fillSelect', index.fillSelect);
 app.post('/addGrat', gratitude.addGrat);
-// Example route
-// app.get('/users', user.list);
+app.post('/fillReport', report.fillReport);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

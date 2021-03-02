@@ -4,55 +4,20 @@
   		"id": "0",
   		"time": "00:00:00",
   		"text": "",
-  		"mood": [
-    	{
-  			"id": "i0",
-  			"mood": "Choose here",
-  			"color": "black",
-  			"selected": "selected",
-  			"disabled": "disabled",
-  			"hidden": "hidden"
-  		},
-    	{
-  			"id": "i1",
-  			"mood": "Happy",
-  			"color": "yellow",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i2",
-  			"mood": "Energetic",
-  			"color": "green",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i3",
-  			"mood": "Motivated",
-  			"color": "purple",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i4",
-  			"mood": "Angry",
-  			"color": "red",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i5",
-  			"mood": "Sad",
-  			"color": "blue",
-  			"selected": ""
-  		},
-  		{
-  			"id": "i6",
-  			"mood": "Depressed",
-  			"color": "grey",
-  			"selected": ""
-  		}
-  		]
+      "opt": "0"
   	}
   	],
+
   	"report": [
+    {
+      "clrid": "i0",
+      "mood": "Choose here",
+      "color": "black",
+      "selected": "selected",
+      "disabled": "disabled",
+      "hidden": "hidden",
+      "height": "30"
+    },
   	{
   		"id": "i1",
   		"mood": "Happy",
@@ -90,46 +55,37 @@
   		"height": "30"
   	}
   	],
+
   	"input": [
 		{
-			"text": "My dog",
-			"num": "1"
+			"text": "My dog"
 		},
 		{
-			"text": "A home to live in",
-			"num": "2"
+			"text": "A home to live in"
 		},
 		{
-			"text": "A computer to do work on and use for entertainment",
-			"num": "3"
+			"text": "A computer to do work on and use for entertainment"
 		},
 		{
-			"text": "A good job to work at",
-			"num": "4"
+			"text": "A good job to work at"
 		},
 		{
-			"text": "Friends",
-			"num": "5"
+			"text": "Friends"
 		},
 		{
-			"text": "Family",
-			"num": "6"
+			"text": "Family"
 		},
 		{
-			"text": "Good Thai food",
-			"num": "7"
+			"text": "Good Thai food"
 		},
 		{
-			"text": "Pencils",
-			"num": "8"
+			"text": "Pencils"
 		},
 		{
-			"text": "Coffee",
-			"num": "9"
+			"text": "Coffee"
 		},
 		{
-			"text": "A comfy bed",
-			"num": "10"
+			"text": "A comfy bed"
 		}
 	]
 }

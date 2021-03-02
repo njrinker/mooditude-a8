@@ -6,6 +6,7 @@
   <link href="/css/style.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/mood.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
@@ -18,24 +19,24 @@
   <br><br><br><br>
   <!--All of the form items will be rendered here, but intializing them is taken care of in mood.js-->
   <div class="entry">
+    <form id="moodForm">
     {{#each form}}
       <div class="container">
-        <form>
-          <input type="time" class="time" value="{{time}}">
-          <textarea class="mood" id="{{id}}" cols="100" rows="1" required="">{{text}}</textarea>
-          <select name="grat_clr" class="grat_clr fas" required="" aria-hidden="true">
-          {{#each mood}}
-            <option value="fas fa-circle" id="{{id}}" style="color: {{color}}" {{selected}} {{disabled}} {{hidden}}>&#xf111 {{mood}}</option>
-          {{/each}}
+          <input type="time" class="time" id="time{{id}}" value="{{time}}">
+          <textarea class="mood" id="textarea{{id}}" cols="100" rows="1">{{text}}</textarea>
+          <select name="grat_clr" class="grat_clr fas" id="select{{id}}" aria-hidden="true">
+          <!--{{#each mood}}
+            <option value="fas fa-circle" id="option{{clrid}}" style="color: {{color}}" {{selected}} {{disabled}} {{hidden}}>&#xf111 {{mood}}</option>
+          {{/each}}-->
           </select>
-        </form>
       </div>
     {{/each}}
+    <button type="submit" class="button b_left fa-lg" id="btns" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
+    </form>
   </div>
 	<br>
 
   <!--Main navigation buttons, rendered at the bottom of the screen-->
-  <!--<button class="button b_left fa-lg" id="btns"><i class="fas fa-save"></i><b> Save</b></button>-->
 	<button class="button b_right fa-lg" id="btn1"><b>Add </b><i class="fas fa-plus"></i></button>
   <br><br><br><br><br><br><br><br>
   <div class="fas float b_bottom">
