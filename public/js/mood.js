@@ -182,4 +182,9 @@ function closeSet() {
   document.getElementById("mySideSet").style.width = "0";
   document.getElementById("btnset").style.marginLeft= "0";
   document.body.style.backgroundColor = "white";
+  document.getElementById("textarea0").style.backgroundColor = "white";
+  document.getElementById("form0").style.backgroundColor = "#f7f7f7";
+  document.getElementById("time0").style.backgroundColor = "f7f7f7";
+  document.getElementById("btns").style.backgroundColor = "#aaa";
+  document.getElementById("btnl").style.backgroundColor = "#aaa";
 }

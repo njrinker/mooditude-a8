@@ -13,9 +13,9 @@
 <body class="lrg_font">
   <!--Home button and navigation-->
   <div class="header float">
-    <button class="hbutton b_nav b_left" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
+    <button class="hbutton b_nav b_left clr_chng" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
 	  <h1 style="text-align:center">How are you feeling?</h1>
-    <button class="setbutton b_nav b_right" id="btnset" onclick="openSet()"><i class="fas fa-cog fa-3x"></i></button>
+    <button class="setbutton b_nav b_right clr_chng" id="btnset" onclick="openSet()"><i class="fas fa-cog fa-3x"></i></button>
   </div>
   <div id="mySideSet" class="sideset">
     <a href="javascript:void(0)" class="closebtn" id="btncls" onclick="closeSet()">&times;</a>
@@ -25,9 +25,9 @@
   <div class="entry">
     <form id="moodForm">
     {{#each form}}
-      <div class="container" id="form{{id}}">
-          <input type="time" class="time" id="time{{id}}" value="{{time}}">
-          <textarea class="mood" id="textarea{{id}}" cols="100" rows="1">{{text}}</textarea>
+      <div class="container clr_chng" id="form{{id}}">
+          <input type="time" class="time clr_chng" id="time{{id}}" value="{{time}}">
+          <textarea class="mood clr_chng" id="textarea{{id}}" cols="100" rows="1">{{text}}</textarea>
           <select name="grat_clr" class="grat_clr fas" id="select{{id}}" aria-hidden="true">
           <!--{{#each mood}}
             <option value="fas fa-circle" id="option{{clrid}}" style="color: {{color}}" {{selected}} {{disabled}} {{hidden}}>&#xf111 {{mood}}</option>
@@ -35,7 +35,7 @@
           </select>
       </div>
     {{/each}}
-    <button type="submit" class="button b_left fa-lg" id="btns" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
+    <button type="submit" class="button b_left fa-lg clr_chng" id="btns" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
     </form>
   </div>
 	<br>
@@ -44,7 +44,7 @@
 	<button class="button b_right fa-lg" id="btn1"><b>Add </b><i class="fas fa-plus"></i></button>
   <br><br><br><br><br><br><br><br>
   <div class="fas float b_bottom">
-    <button class="button b_left fa-lg" id="btnl" onclick="location.href='/title'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
+    <button class="button b_left fa-lg clr_chng" id="btnl" onclick="location.href='/title'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
     <button class="button b_right fa-lg" id="btnr" onclick="location.href='/gratitude'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
   </div>
 </body>

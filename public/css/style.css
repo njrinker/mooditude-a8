@@ -157,7 +157,7 @@
       font-weight: 900;
     }
     /*Side settings screen styling*/
-    body {
+    .clr_chng {
       transition: background-color .5s;
     }
     .sideset {
