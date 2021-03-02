@@ -40,7 +40,6 @@ app.get('/gratitude', gratitude.view);
 app.get('/report', report.view);
 app.get('/title', title.view);
 app.post('/addMood', index.addMood);
-app.post('/fillSelect', index.fillSelect);
 app.post('/addGrat', gratitude.addGrat);
 app.post('/fillReport', report.fillReport);
 
