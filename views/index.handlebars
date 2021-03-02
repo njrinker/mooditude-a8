@@ -13,15 +13,19 @@
 <body class="lrg_font">
   <!--Home button and navigation-->
   <div class="header float">
-    <button class="hbutton" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x" id="ih"></i></button>
+    <button class="hbutton b_nav b_left" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
 	  <h1 style="text-align:center">How are you feeling?</h1>
+    <button class="setbutton b_nav b_right" id="btnset" onclick="openSet()"><i class="fas fa-cog fa-3x"></i></button>
+  </div>
+  <div id="mySideSet" class="sideset">
+    <a href="javascript:void(0)" class="closebtn" id="btncls" onclick="closeSet()">&times;</a>
   </div>
   <br><br><br><br>
   <!--All of the form items will be rendered here, but intializing them is taken care of in mood.js-->
   <div class="entry">
     <form id="moodForm">
     {{#each form}}
-      <div class="container">
+      <div class="container" id="form{{id}}">
           <input type="time" class="time" id="time{{id}}" value="{{time}}">
           <textarea class="mood" id="textarea{{id}}" cols="100" rows="1">{{text}}</textarea>
           <select name="grat_clr" class="grat_clr fas" id="select{{id}}" aria-hidden="true">

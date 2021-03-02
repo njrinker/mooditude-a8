@@ -9,6 +9,8 @@ $(document).ready(function() {
 function initializePage() {
 	$("#btn1").click(addForm);
 	$("#sub_btn").click(checkForm);
+	$("#btnset").click(openSet);
+	$("#btncls").click(closeSet);
 	initMoodForm();
 	initGratForm();
 }
@@ -160,4 +162,24 @@ function addOption(select) {
 	select.append(option_4);
 	select.append(option_5);
 	select.append(option_6);*/
+}
+/*Open side settings menu*/
+function openSet() {
+  document.getElementById("mySideSet").style.width = "500px";
+  document.getElementById("btnset").style.marginLeft = "500px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("btnh").style.backgroundColor = "rgba(0,0,0,0)";
+  document.getElementById("textarea0").style.backgroundColor = "rgba(0,0,0,0)";
+  document.getElementById("form0").style.backgroundColor = "rgba(0,0,0,0)";
+  document.getElementById("time0").style.backgroundColor = "rgba(0,0,0,0)";
+  document.getElementById("btns").style.backgroundColor = "rgba(0,0,0,0)";
+  document.getElementById("btnl").style.backgroundColor = "rgba(0,0,0,0)";
+  document.getElementById("textarea0").style.border = "0"
+  document.getElementById("time0").style.border = "0";
+}
+/*Close side settings menu*/
+function closeSet() {
+  document.getElementById("mySideSet").style.width = "0";
+  document.getElementById("btnset").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
 }

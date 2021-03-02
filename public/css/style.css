@@ -16,6 +16,7 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 1em;
       height: 40px;
       width: 375px;
       font-size: xx-large;
@@ -32,6 +33,11 @@
       max-width: 40%;
       margin: auto !important;
       font-size: xx-large;
+    }
+    .fb_login {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     /*Styling for forms on the mood entry screen*/
     .mood {
@@ -95,11 +101,6 @@
       position: fixed;
       z-index: 100;
     }
-    /*For home button*/
-    .hbutton {
-      border: none;
-      display: block;
-    }
     /*Generic button style and customization*/
 		.button {
 			position: absolute;
@@ -138,6 +139,13 @@
     .b_top {
       top: 5%
     }
+    .b_nav {
+      position: absolute;
+      top: 35%;
+      border: none;
+      background-color: white;
+      display: block;
+    }
     .b_bottom {
       bottom: 5%;
     }
@@ -148,9 +156,42 @@
     .fas option {
       font-weight: 900;
     }
-    /*Home button id*/
-    #ih {
+    /*Side settings screen styling*/
+    body {
+      transition: background-color .5s;
+    }
+    .sideset {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    .sideset a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    .sideset .closebtn {
       position: absolute;
-      left: 5%;
-      top: 35%;
+      top: 0;
+      right: 25px;
+      font-size: 75px;
+      margin-left: 50px;
+    }
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+    @media screen and (max-height: 450px) {
+      .sideset {padding-top: 15px;}
+      .sideset a {font-size: 18px;}
     }

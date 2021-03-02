@@ -7,9 +7,13 @@
 	<script src="https://kit.fontawesome.com/ff34cc79cd.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/mood.js"></script>
+	{{> facebook}}
+<script src="/js/facebook.js"></script>
 </head>
 <!--All of the displayed content on the webpage is rendered here-->
 <body class="lrg_font">
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=1773201872855837" nonce="kVk7ay6c"></script>
 	<!--Displays logo image-->
 	<img src="images/logo.png" class="logo">
 	<!--WoO login (will be deprecated when login is replaced)-->
@@ -18,10 +22,13 @@
 			<label for="username" name="username_lbl" class="label">Username</label>
 			<br>
 			<input type="text" name="username_in" class="input" required>
-			<br>
 			<label for="password" name="password_lbl" class="label">Password</label>
 			<br>
 			<input type="password" name="password_in" class="input" required>
+			<p class="facebookLogin">
+				<fb:login-button id="fb_btn" class="fb_login" scope="public_profile,email" data-size="large" data-button-type="login_with" onlogin="checkLoginState();">
+				</fb:login-button>
+			</p>
 		</div>
 		<br>
 		<!--Main navigation buttons, rendered at the bottom of the screen-->
