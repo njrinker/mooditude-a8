@@ -29,6 +29,9 @@ app.use(express.cookieParser('IxD secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+/*var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies*/
 
 // development only
 if ('development' == app.get('env')) {
@@ -40,8 +43,13 @@ app.get('/gratitude', gratitude.view);
 app.get('/report', report.view);
 app.get('/title', title.view);
 app.post('/addMood', index.addMood);
+app.post('/setTheme', index.setTheme);
+app.post('/setMoods', index.setMoods);
 app.post('/addGrat', gratitude.addGrat);
 app.post('/fillReport', report.fillReport);
+app.post('/getForms', index.getForms);
+app.post('/getTheme', index.getTheme);
+app.post('/getBubbles', index.getBubbles);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

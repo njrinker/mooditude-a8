@@ -167,7 +167,7 @@
       z-index: 999;
       top: 0;
       right: 0;
-      background-color: #111;
+      background-color: #fff;
       overflow-x: hidden;
       transition: 0.5s;
       padding-top: 60px;
@@ -194,4 +194,20 @@
     @media screen and (max-height: 450px) {
       .sideset {padding-top: 15px;}
       .sideset a {font-size: 18px;}
+    }
+    /*Style the theme selector in the off canvas menu*/
+    .themeselector {
+      left: 25px;
+      width: 90%;
+      border: 1px solid #f7f7f7;
+      background-color: #f7f7f7;
+      font-size: xx-large;
+    }
+    /*Style the color bubbles in the settings page*/
+    .themelabel {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 5px;
+      font-size: xx-large;
     }

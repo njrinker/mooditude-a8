@@ -19,6 +19,24 @@
   </div>
   <div id="mySideSet" class="sideset">
     <a href="javascript:void(0)" class="closebtn" id="btncls" onclick="closeSet()">&times;</a>
+    <h2>Change the theme</h2>
+    <form id="settings">
+      <div class="container">
+        <select class="themeselector" id="themeselector" aria-hidden="true">
+          {{#each themeSelect}}
+            <option id="theme{{id}}">{{text}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <h2>Customize your moods</h2>
+      <div class="container">
+        {{#each bubbles}}
+          <label value="fas fa-circle" for="moodcolor{{num}}" name="moodcolor_lbl{{num}}" class="themelabel" style="color: {{color}}"><i class="fas fa-circle"></i></label>
+          <input type="text" name="moodcolor{{num}}" id="moodcolor{{num}}" class="input" value="{{text}}">
+        {{/each}}
+    </div>
+    <button type="submit" class="button b_left fa-lg" id="btnsetsub" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
+    </form>
   </div>
   <br><br><br><br>
   <!--All of the form items will be rendered here, but intializing them is taken care of in mood.js-->

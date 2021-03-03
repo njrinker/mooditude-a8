@@ -1,5 +1,5 @@
 {
-	"form": [
+	  "form": [
   	{
   		"id": "0",
   		"time": "00:00:00",
@@ -87,5 +87,79 @@
 		{
 			"text": "A comfy bed"
 		}
-	]
+    ],
+
+    "themeSelect": [
+    {
+      "id": "1",
+      "text": "Pastel"
+    },
+    {
+      "id": "1",
+      "text": "Dark"
+    },
+    {
+      "id": "2",
+      "text": "Light"
+    }
+    ],
+
+    "themeChoice": [
+    {
+      "num": "0"
+    }
+    ],
+
+    "bubbles": [
+    {
+      "num": "1",
+      "color": "yellow",
+      "text":"Happy"
+    },
+    {
+      "num": "2",
+      "color": "green",
+      "text":"Energetic"
+    },
+    {
+      "num": "3",
+      "color": "purple",
+      "text":"Motivated"
+    },
+    {
+      "num": "4",
+      "color": "red",
+      "text":"Angry"
+    },
+    {
+      "num": "5",
+      "color": "blue",
+      "text":"Sad"
+    },
+    {
+      "num": "6",
+      "color": "grey",
+      "text":"Depressed"
+    },
+    {
+      "num": "7",
+      "color": "cyan",
+      "text":""
+    },
+    {
+      "num": "8",
+      "color": "orange",
+      "text":""
+    },
+    {
+      "num": "9",
+      "color": "maroon",
+      "text":""
+    },
+    {
+      "num": "10",
+      "color": "violet",
+      "text":""
+    }
+    ]
 }

@@ -2,8 +2,8 @@
 //Initialize index page
 $(document).ready(function() {
 	initializePage();
-	//fillPage();
 	initSelect();
+	fillPage();
 })
 //Page initialization
 function initializePage() {
@@ -13,20 +13,49 @@ function initializePage() {
 	$("#btncls").click(closeSet);
 	initMoodForm();
 	initGratForm();
+	initSetForm();
+}
+//Function to initialize page with proper data
+function fillPage() {
+	$.post('getForms', setFormSelected);
+	$.post('getTheme', initTheme);
+
+	//Callback function that sets the selected mood on each form
+	function setFormSelected(result) {
+		var i;
+		for (i = 0; i < result.length; i++) {
+			var optSelect = result[i].opt;
+			if (document.getElementById('select' + i)) {
+				document.getElementById('select' + i).selectedIndex = optSelect;
+			}
+		}
+	}
+	//Callback function that sets the theme on the website
+	function initTheme(result) {
+		var themeSelect = result[0].num;
+		if (document.getElementById('themeselector')) {
+			document.getElementById('themeselector').selectedIndex = themeSelect;
+		}
+	}
 }
 //Function to save user input from mood page
 function initMoodForm() {
 	$('#moodForm').submit(function(e) {
 		e.preventDefault();
-		console.log("Submitting moodForm...");
-		var i;
-		for (i = 0; i < 1; i++) {
-  			var moodTime = $('#time' + i).val();
-  			var moodText = document.getElementById('textarea' + i).value;
-  			var moodOpt = document.getElementById('select' + i).selectedIndex;
-  			if (moodText.length != 0) {
-  				$.post('addMood', { time: moodTime, text: moodText, opt: moodOpt});
-  			}
+		$.post('getForms', contMoodForm);
+		//Callback function to finish the original process
+		function contMoodForm(result) {
+			console.log("Submitting moodForm...");
+			var i;
+			for (i = 0; i < result.length; i++) {
+  				var moodTime = $('#time' + i).val();
+  				var moodText = document.getElementById('textarea' + i).value;
+  				var moodOpt = document.getElementById('select' + i).selectedIndex;
+  				var moodId = i + 1;
+  				if (moodText.length != 0) {
+  					$.post('addMood', { id: moodId, time: moodTime, text: moodText, opt: moodOpt});
+  				}
+  		}
   	}
   });
 }
@@ -34,8 +63,7 @@ function initMoodForm() {
 function initSelect() {
 	var i;
 	var selectors = document.querySelectorAll("select");
-  	for (i = 0; i < selectors.length; i++) {
-  		console.log("Here");
+  	for (i = 1; i < selectors.length; i++) {
   		addOption(selectors[i]);
   	}
 }
@@ -55,6 +83,22 @@ function initGratForm() {
   	}
   });
 }
+//Function to save user's choice of settings
+function initSetForm() {
+	$('#settings').submit(function(e) {
+		e.preventDefault();
+		console.log("Submitting settings...");
+		var themeChoice = document.getElementById('themeselector').selectedIndex;
+		$.post('setTheme', { num: themeChoice});
+		var i;
+		var colors = ["yellow", "green", "purple", "red", "blue", "grey", "cyan", "orange", "maroon", "violet"];
+		for (i = 1; i <= 10; i++) {
+			var moodSet = document.getElementById('moodcolor' + i).value;
+			$.post('setMoods', { num: i, color: colors[i-1], text: moodSet});
+		}
+		window.location.href="/";
+	});
+}
 //Checks the submission of the login (will be deprecated when login is replaced)
 function checkForm() {
     var a = document.forms["login_form"]["username_in"].value;
@@ -65,15 +109,7 @@ function checkForm() {
     }
 }
 
-/*function fillPage() {
-	$.getJSON("mood.json", loadData);
-}
-
-function loadData(res) {
-	console.log(res);
-}*/
-
-//Create a new form when the add button is pressed.	Needs JSON integration.
+//Create a new form when the add button is pressed.	
 function addForm() {
 	var new_field = document.createElement("div");
 	new_field.setAttribute("class", "container");
@@ -107,9 +143,6 @@ function addForm() {
 }
 //Helper function to create selector options for the form.
 function addOption(select) {
-	var i;
-	var storage = [];
-	var moods = ["Happy", "Energetic", "Motivated", "Angry", "Sad", "Depressed"]
 	var option_0 = document.createElement("option");
 	option_0.setAttribute("value", "");
 	option_0.setAttribute("selected", "");
@@ -118,12 +151,20 @@ function addOption(select) {
 	option_0.setAttribute("clrid", "i0");
 	option_0.innerHTML = "&#xf111 Choose";
 	select.append(option_0);
-	for (i = 0; i < moods.length; i++) {
-		storage[i] = document.createElement("option");
-		storage[i].setAttribute("value", "fas fa-circle");
-		storage[i].setAttribute("clrid", "i" + i);
-		storage[i].innerHTML = "&#xf111 " + moods[i];
-		select.append(storage[i]);
+	$.post('getBubbles', contAddOption);
+	//Callback function to finish process
+	function contAddOption(result) {
+		var i;
+		var storage = [];
+		for (i = 0; i < result.length; i++) {
+			if (result[i].text.length != 0) {
+				storage[i] = document.createElement("option");
+				storage[i].setAttribute("value", "fas fa-circle");
+				storage[i].setAttribute("clrid", "i" + i);
+				storage[i].innerHTML = "&#xf111 " + result[i].text;
+				select.append(storage[i]);
+			}
+		}
 	}
 	/*var option_1 = document.createElement("option");
 	option_1.setAttribute("value", "fas fa-circle");
@@ -169,22 +210,36 @@ function openSet() {
   document.getElementById("btnset").style.marginLeft = "500px";
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
   document.getElementById("btnh").style.backgroundColor = "rgba(0,0,0,0)";
-  document.getElementById("textarea0").style.backgroundColor = "rgba(0,0,0,0)";
-  document.getElementById("form0").style.backgroundColor = "rgba(0,0,0,0)";
-  document.getElementById("time0").style.backgroundColor = "rgba(0,0,0,0)";
   document.getElementById("btns").style.backgroundColor = "rgba(0,0,0,0)";
   document.getElementById("btnl").style.backgroundColor = "rgba(0,0,0,0)";
-  document.getElementById("textarea0").style.border = "0"
-  document.getElementById("time0").style.border = "0";
+  $.post('getForms', contOpenSet);
+  //Callback function to set style on forms
+  function contOpenSet(result) {
+  	var i;
+	for (i = 0; i < result.length; i++) {
+		document.getElementById("textarea" + i).style.backgroundColor = "rgba(0,0,0,0)";
+  		document.getElementById("form" + i).style.backgroundColor = "rgba(0,0,0,0)";
+  		document.getElementById("time" + i).style.backgroundColor = "rgba(0,0,0,0)";
+  		document.getElementById("textarea" + i).style.border = "0"
+  		document.getElementById("time" + i).style.border = "0";
+	}
+  }
 }
 /*Close side settings menu*/
 function closeSet() {
   document.getElementById("mySideSet").style.width = "0";
   document.getElementById("btnset").style.marginLeft= "0";
   document.body.style.backgroundColor = "white";
-  document.getElementById("textarea0").style.backgroundColor = "white";
-  document.getElementById("form0").style.backgroundColor = "#f7f7f7";
-  document.getElementById("time0").style.backgroundColor = "f7f7f7";
   document.getElementById("btns").style.backgroundColor = "#aaa";
   document.getElementById("btnl").style.backgroundColor = "#aaa";
+  $.post('getForms', contCloseSet);
+  //Callback function to reset style on forms
+  function contCloseSet(result) {
+  	var i;
+	for (i = 0; i < result.length; i++) {
+		document.getElementById("textarea" + i).style.backgroundColor = "white";
+  		document.getElementById("form" + i).style.backgroundColor = "#f7f7f7";
+  		document.getElementById("time" + i).style.backgroundColor = "#f7f7f7";
+	}
+  }
 }
