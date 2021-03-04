@@ -13,15 +13,16 @@
 <body class="lrg_font">
   <!--Home button and navigation-->
   <div class="header float">
-    <button class="hbutton b_nav b_left clr_chng" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
+    <button class="hbutton b_nav b_left clr_chng nav_color" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
 	  <h1 style="text-align:center">How are you feeling?</h1>
-    <button class="setbutton b_nav b_right clr_chng" id="btnset" onclick="openSet()"><i class="fas fa-cog fa-3x"></i></button>
+    <button class="setbutton b_nav b_right clr_chng nav_color" id="btnset" onclick="openSet()"><i class="fas fa-cog fa-3x"></i></button>
   </div>
+  <!--Off canvas menu-->
   <div id="mySideSet" class="sideset">
     <a href="javascript:void(0)" class="closebtn" id="btncls" onclick="closeSet()">&times;</a>
     <h2>Change the theme</h2>
     <form id="settings">
-      <div class="container">
+      <div class="container bkgr_color brdr_color">
         <select class="themeselector" id="themeselector" aria-hidden="true">
           {{#each themeSelect}}
             <option id="theme{{id}}">{{text}}</option>
@@ -29,13 +30,13 @@
         </select>
       </div>
       <h2>Customize your moods</h2>
-      <div class="container">
+      <div class="container bkgr_color brdr_color">
         {{#each bubbles}}
-          <label value="fas fa-circle" for="moodcolor{{num}}" name="moodcolor_lbl{{num}}" class="themelabel" style="color: {{color}}"><i class="fas fa-circle"></i></label>
+          <label value="fas fa-circle" for="moodcolor{{num}}" name="moodcolor_lbl{{num}}" id="moodcolor_lbl{{num}}" class="themelabel b{{num}}_color"><i class="fas fa-circle"></i></label>
           <input type="text" name="moodcolor{{num}}" id="moodcolor{{num}}" class="input" value="{{text}}">
         {{/each}}
     </div>
-    <button type="submit" class="button b_left fa-lg" id="btnsetsub" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
+    <button type="submit" class="button b_left fa-lg btn_color" id="btnsetsub" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
     </form>
   </div>
   <br><br><br><br>
@@ -43,27 +44,27 @@
   <div class="entry">
     <form id="moodForm">
     {{#each form}}
-      <div class="container clr_chng" id="form{{id}}">
-          <input type="time" class="time clr_chng" id="time{{id}}" value="{{time}}">
+      <div class="container clr_chng bkgr_color brdr_color" id="form{{id}}">
+          <input type="time" class="time clr_chng bkgr_color" id="time{{id}}" value="{{time}}">
           <textarea class="mood clr_chng" id="textarea{{id}}" cols="100" rows="1">{{text}}</textarea>
-          <select name="grat_clr" class="grat_clr fas" id="select{{id}}" aria-hidden="true">
+          <select name="grat_clr" class="grat_clr fas bkgr_color" id="select{{id}}" aria-hidden="true">
           <!--{{#each mood}}
             <option value="fas fa-circle" id="option{{clrid}}" style="color: {{color}}" {{selected}} {{disabled}} {{hidden}}>&#xf111 {{mood}}</option>
           {{/each}}-->
           </select>
       </div>
     {{/each}}
-    <button type="submit" class="button b_left fa-lg clr_chng" id="btns" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
+    <button type="submit" class="button b_left fa-lg clr_chng btn_color" id="btns" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
     </form>
   </div>
 	<br>
 
   <!--Main navigation buttons, rendered at the bottom of the screen-->
-	<button class="button b_right fa-lg" id="btn1"><b>Add </b><i class="fas fa-plus"></i></button>
+	<button class="button b_right fa-lg btn_color" id="btn1"><b>Add </b><i class="fas fa-plus"></i></button>
   <br><br><br><br><br><br><br><br>
   <div class="fas float b_bottom">
-    <button class="button b_left fa-lg clr_chng" id="btnl" onclick="location.href='/title'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
-    <button class="button b_right fa-lg" id="btnr" onclick="location.href='/gratitude'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
+    <button class="button b_left fa-lg clr_chng btn_color" id="btnl" onclick="location.href='/title'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
+    <button class="button b_right fa-lg btn_color" id="btnr" onclick="location.href='/gratitude'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
   </div>
 </body>
 </html>

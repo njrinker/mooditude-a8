@@ -25,6 +25,12 @@ exports.setMoods = function(req, res) {
 	res.send(moodData);
 };
 
+exports.setColors = function(req, res) {
+	var colorsData = req.body;
+	data.theme.push(colorsData);
+	res.send(colorsData);
+}
+
 exports.getForms = function(req, res) {
 	res.json(data.form); 
 };
@@ -36,3 +42,7 @@ exports.getTheme = function(req, res) {
 exports.getBubbles = function(req, res) {
 	res.json(data.bubbles);
 };
+
+exports.getAll = function(req, res) {
+	res.json(data);
+}

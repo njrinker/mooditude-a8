@@ -4,6 +4,7 @@ $(document).ready(function() {
 	initializePage();
 	initSelect();
 	fillPage();
+	initColors();
 })
 //Page initialization
 function initializePage() {
@@ -91,10 +92,9 @@ function initSetForm() {
 		var themeChoice = document.getElementById('themeselector').selectedIndex;
 		$.post('setTheme', { num: themeChoice});
 		var i;
-		var colors = ["yellow", "green", "purple", "red", "blue", "grey", "cyan", "orange", "maroon", "violet"];
 		for (i = 1; i <= 10; i++) {
 			var moodSet = document.getElementById('moodcolor' + i).value;
-			$.post('setMoods', { num: i, color: colors[i-1], text: moodSet});
+			$.post('setMoods', { num: i, text: moodSet});
 		}
 		window.location.href="/";
 	});
@@ -108,7 +108,6 @@ function checkForm() {
     	return false;
     }
 }
-
 //Create a new form when the add button is pressed.	
 function addForm() {
 	var new_field = document.createElement("div");
@@ -148,8 +147,8 @@ function addOption(select) {
 	option_0.setAttribute("selected", "");
 	option_0.setAttribute("disabled", "");
 	option_0.setAttribute("hidden", "");
-	option_0.setAttribute("clrid", "i0");
-	option_0.innerHTML = "&#xf111 Choose";
+	option_0.setAttribute("id", "b0");
+	option_0.innerHTML = "Choose";
 	select.append(option_0);
 	$.post('getBubbles', contAddOption);
 	//Callback function to finish process
@@ -160,49 +159,12 @@ function addOption(select) {
 			if (result[i].text.length != 0) {
 				storage[i] = document.createElement("option");
 				storage[i].setAttribute("value", "fas fa-circle");
-				storage[i].setAttribute("clrid", "i" + i);
+				storage[i].setAttribute("class", "b" + (i + 1) + "_color");
 				storage[i].innerHTML = "&#xf111 " + result[i].text;
 				select.append(storage[i]);
 			}
 		}
 	}
-	/*var option_1 = document.createElement("option");
-	option_1.setAttribute("value", "fas fa-circle");
-	option_1.setAttribute("clrid", "i1");
-	option_1.innerHTML = "&#xf111 Sad";
-
-	var option_2 = document.createElement("option");
-	option_2.setAttribute("value", "fas fa-circle");
-	option_2.setAttribute("clrid", "i2");
-	option_2.innerHTML = "&#xf111 Angry";
-
-	var option_3 = document.createElement("option");
-	option_3.setAttribute("value", "fas fa-circle");
-	option_3.setAttribute("clrid", "i3");
-	option_3.innerHTML = "&#xf111 Energetic";
-
-	var option_4 = document.createElement("option");
-	option_4.setAttribute("value", "fas fa-circle");
-	option_4.setAttribute("clrid", "i4");
-	option_4.innerHTML = "&#xf111 Happy";
-
-	var option_5 = document.createElement("option");
-	option_5.setAttribute("value", "fas fa-circle");
-	option_5.setAttribute("clrid", "i5");
-	option_5.innerHTML = "&#xf111 Motivated";
-
-	var option_6 = document.createElement("option");
-	option_6.setAttribute("value", "fas fa-circle");
-	option_6.setAttribute("clrid", "i6");
-	option_6.innerHTML = "&#xf111 Depressed";
-
-	select.append(option_0);
-	select.append(option_1);
-	select.append(option_2);
-	select.append(option_3);
-	select.append(option_4);
-	select.append(option_5);
-	select.append(option_6);*/
 }
 /*Open side settings menu*/
 function openSet() {
@@ -210,6 +172,7 @@ function openSet() {
   document.getElementById("btnset").style.marginLeft = "500px";
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
   document.getElementById("btnh").style.backgroundColor = "rgba(0,0,0,0)";
+  document.getElementById("btnh").style.color = "rgba(0,0,0,1)";
   document.getElementById("btns").style.backgroundColor = "rgba(0,0,0,0)";
   document.getElementById("btnl").style.backgroundColor = "rgba(0,0,0,0)";
   $.post('getForms', contOpenSet);
@@ -232,14 +195,177 @@ function closeSet() {
   document.body.style.backgroundColor = "white";
   document.getElementById("btns").style.backgroundColor = "#aaa";
   document.getElementById("btnl").style.backgroundColor = "#aaa";
-  $.post('getForms', contCloseSet);
+  $.post('getAll', contCloseSet);
   //Callback function to reset style on forms
   function contCloseSet(result) {
   	var i;
-	for (i = 0; i < result.length; i++) {
+  	var index = result.themeChoice[0].num;
+  			switch(index) {
+			case "0":
+				var nav_color = "PowderBlue";
+				var btn_color = "PowderBlue";
+				var bkgr_color = "MediumTurquoise";
+				var brdr_color = "LightPink";
+				break;
+			case "1":
+				var nav_color = "";
+				var btn_color = "";
+				var bkgr_color = "";
+				var brdr_color = "";
+				break;
+			case "2":
+				var nav_color = "";
+				var btn_color = "";
+				var bkgr_color = "";
+				var brdr_color = "";
+				break;
+			default:
+				var nav_color = "PowderBlue";
+				var btn_color = "PowderBlue";
+				var bkgr_color = "MediumTurquoise";
+				var brdr_color = "LightPink";
+		}
+	for (i = 0; i < result.form.length; i++) {
+		document.getElementById("btnh").style.color = nav_color;
 		document.getElementById("textarea" + i).style.backgroundColor = "white";
-  		document.getElementById("form" + i).style.backgroundColor = "#f7f7f7";
-  		document.getElementById("time" + i).style.backgroundColor = "#f7f7f7";
+  		document.getElementById("form" + i).style.backgroundColor = bkgr_color;
+  		document.getElementById("time" + i).style.backgroundColor = bkgr_color;
+  		document.getElementById("btns").style.backgroundColor = btn_color;
+  		document.getElementById("btnl").style.backgroundColor = btn_color;
 	}
   }
+}
+//Function to set the page's theme based off of what theme has been selected in settings
+function initColors() {
+	$.post('getTheme', contInitColors);
+	//Callback function to continue original task
+	function contInitColors(result) {
+		var index = result[0].num;
+		switch(index) {
+			case "0":
+				var nav_color = "PowderBlue";
+				var btn_color = "PowderBlue";
+				var bkgr_color = "MediumTurquoise";
+				var brdr_color = "LightPink";
+				var b1 = "yellow";
+				var b2 = "green";
+				var b3 = "purple";
+				var b4 = "red";
+				var b5 = "blue";
+				var b6 = "grey";
+				var b7 = "cyan";
+				var b8 = "orange";
+				var b9 = "maroon";
+				var b10 = "violet";
+				break;
+			case "1":
+				var nav_color = "";
+				var btn_color = "";
+				var bkgr_color = "";
+				var brdr_color = "";
+				var b1 = "";
+				var b2 = "";
+				var b3 = "";
+				var b4 = "";
+				var b5 = "";
+				var b6 = "";
+				var b7 = "";
+				var b8 = "";
+				var b9 = "";
+				var b10 = "";
+				break;
+			case "2":
+				var nav_color = "";
+				var btn_color = "";
+				var bkgr_color = "";
+				var brdr_color = "";
+				var b1 = "";
+				var b2 = "";
+				var b3 = "";
+				var b4 = "";
+				var b5 = "";
+				var b6 = "";
+				var b7 = "";
+				var b8 = "";
+				var b9 = "";
+				var b10 = "";
+				break;
+			default:
+				var nav_color = "PowderBlue";
+				var btn_color = "PowderBlue";
+				var bkgr_color = "MediumTurquoise";
+				var brdr_color = "LightPink";
+				var b1 = "yellow";
+				var b2 = "green";
+				var b3 = "purple";
+				var b4 = "red";
+				var b5 = "blue";
+				var b6 = "grey";
+				var b7 = "cyan";
+				var b8 = "orange";
+				var b9 = "maroon";
+				var b10 = "violet";
+		}
+		$.post('setColors', { nav_color: nav_color, btn_color: btn_color, bkgr_color: bkgr_color, brdr_color: brdr_color, b1: b1, b2: b2, b3: b3, b4: b4, b5: b5, b6: b6, b7: b7, b8: b8, b9: b9, b10: b10}, finishInitColors);
+		//Callback function to finish original task
+		function finishInitColors(result) {
+			var nav = document.getElementsByClassName('nav_color');
+			var btn = document.getElementsByClassName('btn_color');
+			var bkgr = document.getElementsByClassName('bkgr_color');
+			var brdr = document.getElementsByClassName('brdr_color');
+			var b1 = document.getElementsByClassName('b1_color');
+			var b2 = document.getElementsByClassName('b2_color');
+			var b3 = document.getElementsByClassName('b3_color');
+			var b4 = document.getElementsByClassName('b4_color');
+			var b5 = document.getElementsByClassName('b5_color');
+			var b6 = document.getElementsByClassName('b6_color');
+			var b7 = document.getElementsByClassName('b7_color');
+			var b8 = document.getElementsByClassName('b8_color');
+			var b9 = document.getElementsByClassName('b9_color');
+			var b10 = document.getElementsByClassName('b10_color');
+			var i;
+			for (i = 0; i < nav.length; i++) {
+				nav[i].style.color = result.nav_color;
+			}
+			for (i = 0; i < btn.length; i++) {
+				btn[i].style.backgroundColor = result.btn_color;
+			}
+			for (i = 0; i < bkgr.length; i++) {
+				bkgr[i].style.backgroundColor = result.bkgr_color;
+			}
+			for (i = 0; i < brdr.length; i++) {
+				brdr[i].style.border = "5px solid " + result.brdr_color;
+			}
+			for (i = 0; i < b1.length; i++) {
+				b1[i].style.color = result.b1;
+			}
+			for (i = 0; i < b2.length; i++) {
+				b2[i].style.color = result.b2;
+			}
+			for (i = 0; i < b3.length; i++) {
+				b3[i].style.color = result.b3;
+			}
+			for (i = 0; i < b4.length; i++) {
+				b4[i].style.color = result.b4;
+			}
+			for (i = 0; i < b5.length; i++) {
+				b5[i].style.color = result.b5;
+			}
+			for (i = 0; i < b6.length; i++) {
+				b6[i].style.color = result.b6;
+			}
+			for (i = 0; i < b7.length; i++) {
+				b7[i].style.color = result.b7;
+			}
+			for (i = 0; i < b8.length; i++) {
+				b8[i].style.color = result.b8;
+			}
+			for (i = 0; i < b9.length; i++) {
+				b9[i].style.color = result.b9;
+			}
+			for (i = 0; i < b10.length; i++) {
+				b10[i].style.color = result.b10;
+			}
+		}
+	}
 }

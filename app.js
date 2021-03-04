@@ -50,6 +50,8 @@ app.post('/fillReport', report.fillReport);
 app.post('/getForms', index.getForms);
 app.post('/getTheme', index.getTheme);
 app.post('/getBubbles', index.getBubbles);
+app.post('/setColors', index.setColors);
+app.post('/getAll', index.getAll);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
