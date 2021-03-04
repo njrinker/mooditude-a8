@@ -202,28 +202,40 @@ function closeSet() {
   	var index = result.themeChoice[0].num;
   			switch(index) {
 			case "0":
-				var nav_color = "PowderBlue";
-				var btn_color = "PowderBlue";
-				var bkgr_color = "MediumTurquoise";
-				var brdr_color = "LightPink";
+				var nav_color = "#A4DAE8";
+				var btn_color = "#A4DAE8";
+				var bkgr_color = "#5FCAE1";
+				var brdr_color = "#F9A9AF";
 				break;
 			case "1":
-				var nav_color = "";
-				var btn_color = "";
-				var bkgr_color = "";
-				var brdr_color = "";
+				var nav_color = "#E8B594";
+				var btn_color = "#E8B594";
+				var bkgr_color = "#A4DAEB";
+				var brdr_color = "#EBBB9C";
 				break;
 			case "2":
-				var nav_color = "";
-				var btn_color = "";
-				var bkgr_color = "";
-				var brdr_color = "";
+				var nav_color = "#F9CCFF";
+				var btn_color = "#F9CCFF";
+				var bkgr_color = "#D5D6EA";
+				var brdr_color = "#F5D5CB";
+				break;
+			case "3":
+				var nav_color = "#FFF6A7";
+				var btn_color = "#FFF6A7";
+				var bkgr_color = "#A5F8CE";
+				var brdr_color = "#FEC9A7";
+				break;
+			case "4":
+				var nav_color = "#A2C4E0";
+				var btn_color = "#A2C4E0";
+				var bkgr_color = "#FFCC66";
+				var brdr_color = "#336699";
 				break;
 			default:
-				var nav_color = "PowderBlue";
-				var btn_color = "PowderBlue";
-				var bkgr_color = "MediumTurquoise";
-				var brdr_color = "LightPink";
+				var nav_color = "#A4DAE8";
+				var btn_color = "#A4DAE8";
+				var bkgr_color = "#5FCAE1";
+				var brdr_color = "#F9A9AF";
 		}
 	for (i = 0; i < result.form.length; i++) {
 		document.getElementById("btnh").style.color = nav_color;
@@ -243,10 +255,10 @@ function initColors() {
 		var index = result[0].num;
 		switch(index) {
 			case "0":
-				var nav_color = "PowderBlue";
-				var btn_color = "PowderBlue";
-				var bkgr_color = "MediumTurquoise";
-				var brdr_color = "LightPink";
+				var nav_color = "#A4DAE8";
+				var btn_color = "#A4DAE8";
+				var bkgr_color = "#5FCAE1";
+				var brdr_color = "#F9A9AF";
 				var b1 = "yellow";
 				var b2 = "green";
 				var b3 = "purple";
@@ -259,42 +271,74 @@ function initColors() {
 				var b10 = "violet";
 				break;
 			case "1":
-				var nav_color = "";
-				var btn_color = "";
-				var bkgr_color = "";
-				var brdr_color = "";
-				var b1 = "";
-				var b2 = "";
-				var b3 = "";
-				var b4 = "";
-				var b5 = "";
-				var b6 = "";
-				var b7 = "";
-				var b8 = "";
-				var b9 = "";
-				var b10 = "";
+				var nav_color = "#E8B594";
+				var btn_color = "#E8B594";
+				var bkgr_color = "#A4DAEB";
+				var brdr_color = "#EBBB9C";
+				var b1 = "yellow";
+				var b2 = "green";
+				var b3 = "purple";
+				var b4 = "red";
+				var b5 = "blue";
+				var b6 = "grey";
+				var b7 = "cyan";
+				var b8 = "orange";
+				var b9 = "maroon";
+				var b10 = "violet";
 				break;
 			case "2":
-				var nav_color = "";
-				var btn_color = "";
-				var bkgr_color = "";
-				var brdr_color = "";
-				var b1 = "";
-				var b2 = "";
-				var b3 = "";
-				var b4 = "";
-				var b5 = "";
-				var b6 = "";
-				var b7 = "";
-				var b8 = "";
-				var b9 = "";
-				var b10 = "";
+				var nav_color = "#F9CCFF";
+				var btn_color = "#F9CCFF";
+				var bkgr_color = "#D5D6EA";
+				var brdr_color = "#F5D5CB";
+				var b1 = "yellow";
+				var b2 = "green";
+				var b3 = "purple";
+				var b4 = "red";
+				var b5 = "blue";
+				var b6 = "grey";
+				var b7 = "cyan";
+				var b8 = "orange";
+				var b9 = "maroon";
+				var b10 = "violet";
+				break;
+			case "3":
+				var nav_color = "#FFF6A7";
+				var btn_color = "#FFF6A7";
+				var bkgr_color = "#A5F8CE";
+				var brdr_color = "#FEC9A7";
+				var b1 = "yellow";
+				var b2 = "green";
+				var b3 = "purple";
+				var b4 = "red";
+				var b5 = "blue";
+				var b6 = "grey";
+				var b7 = "cyan";
+				var b8 = "orange";
+				var b9 = "maroon";
+				var b10 = "violet";
+				break;
+			case "4":
+				var nav_color = "#A2C4E0";
+				var btn_color = "#A2C4E0";
+				var bkgr_color = "#FFCC66";
+				var brdr_color = "#336699";
+				var b1 = "yellow";
+				var b2 = "green";
+				var b3 = "purple";
+				var b4 = "red";
+				var b5 = "blue";
+				var b6 = "grey";
+				var b7 = "cyan";
+				var b8 = "orange";
+				var b9 = "maroon";
+				var b10 = "violet";
 				break;
 			default:
-				var nav_color = "PowderBlue";
-				var btn_color = "PowderBlue";
-				var bkgr_color = "MediumTurquoise";
-				var brdr_color = "LightPink";
+				var nav_color = "#A4DAE8";
+				var btn_color = "#A4DAE8";
+				var bkgr_color = "#5FCAE1";
+				var brdr_color = "#F9A9AF";
 				var b1 = "yellow";
 				var b2 = "green";
 				var b3 = "purple";

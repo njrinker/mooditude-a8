@@ -13,7 +13,7 @@
 <body class="lrg_font">
 	<!--Home button and navigation-->
 	<div class="header float">
-    	<button class="hbutton b_nav b_left" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
+    	<button class="hbutton b_nav b_left nav_color" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
 		<h1 style="text-align:center">Report</h1>
 	</div>
 	<!--Here we will have a weekly summary table and a list of things that the user was grateful for this week-->
@@ -44,7 +44,7 @@
 	<h2 style="text-align:center">Things you were grateful for this week:</h2>
 	<div id="container" style="font-size: 20px">
 		{{#each input}}
-		<div class="container">
+		<div class="container bkgr_color brdr_color">
 			<p>{{text}}</p>
 		</div>
 		{{/each}}
@@ -52,7 +52,7 @@
 	<br><br>
 	<!--Main navigation buttons, rendered at the bottom of the screen-->
 	<div class="fas float b_bottom">
-		<button class="button b_left fa-lg" onclick="location.href='/gratitude'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
+		<button class="button b_left fa-lg btn_color" onclick="location.href='/gratitude'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
 	</div>
 </body>
 </html>

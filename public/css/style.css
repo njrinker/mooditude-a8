@@ -20,6 +20,7 @@
       height: 40px;
       width: 375px;
       font-size: xx-large;
+      border: 0px;
     }
     /*Styling for label on the input form on title screen (will be deprecated when login is replaced)*/
     .label {

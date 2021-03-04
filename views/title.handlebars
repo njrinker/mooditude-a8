@@ -18,13 +18,13 @@
 	<img src="images/logo.png" class="logo">
 	<!--WoO login (will be deprecated when login is replaced)-->
 	<form action="" name="login_form">
-		<div class="login container">
+		<div class="login">
 			<label for="username" name="username_lbl" class="label">Username</label>
 			<br>
-			<input type="text" name="username_in" class="input" required>
+			<input type="text" name="username_in" class="input btn_color" required>
 			<label for="password" name="password_lbl" class="label">Password</label>
 			<br>
-			<input type="password" name="password_in" class="input" required>
+			<input type="password" name="password_in" class="input btn_color" required>
 			<p class="facebookLogin">
 				<fb:login-button id="fb_btn" class="fb_login" scope="public_profile,email" data-size="large" data-button-type="login_with" onlogin="checkLoginState();">
 				</fb:login-button>
@@ -33,7 +33,7 @@
 		<br>
 		<!--Main navigation buttons, rendered at the bottom of the screen-->
 		<div class="fas float b_center">
-			<input type="submit" class="button fa-lg" id="sub_btn" value="Submit">
+			<input type="submit" class="button fa-lg btn_color" id="sub_btn" value="Submit">
 		</div>
 	</form>	
 </body>

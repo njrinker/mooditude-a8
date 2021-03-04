@@ -12,7 +12,7 @@
 <body class="lrg_font">
 	<!--Home button and navigation-->
 	<div class="header float">
-    	<button class="hbutton b_nav b_left" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
+    	<button class="hbutton b_nav b_left nav_color" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
 		<h1 style="text-align:center">What are you grateful for?</h1>
 	</div>
 	<br><br><br>
@@ -20,17 +20,17 @@
 	<h2 style="text-align:center">Enter at least 5 things you were grateful for today</h2>
 	<form id="gratForm" style="font-size: xx-large">	
 		{{#each input}}
-		<div class="container">
+		<div class="container bkgr_color brdr_color">
 			<label for="grat{{num}}" id="grat_lbl{{num}}">{{num}}</label>
 			<input type="text" name="grat{{num}}" id="grat{{num}}" class="grat" value="{{text}}">
 		</div>
 		{{/each}}
-		<button type="submit" class="button b_left" style="font-size: xx-large"><i class="fas fa-save"></i><b> Save</b></button>
+		<button type="submit" class="button b_left btn_color" style="font-size: xx-large"><i class="fas fa-save"></i><b> Save</b></button>
 	</form>
 	<!--Main navigation buttons, rendered at the bottom of the screen-->
 	<div class="fas float b_bottom">
-    	<button class="button b_left fa-lg" onclick="location.href='/'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
-    	<button class="button b_right fa-lg" onclick="location.href='/report'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
+    	<button class="button b_left fa-lg btn_color" onclick="location.href='/'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
+    	<button class="button b_right fa-lg btn_color" onclick="location.href='/report'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
 	</div>
 </body>
 </html>

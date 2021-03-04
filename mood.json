@@ -28,31 +28,31 @@
   		"id": "i2",
   		"mood": "Energetic",
   		"color": "green",
-  		"height": "23"
+  		"height": "32"
   	},
   	{
   		"id": "i3",
   		"mood": "Motivated",
   		"color": "purple",
-  		"height": "7"
+  		"height": "44"
   	},
   	{
   		"id": "i4",
   		"mood": "Angry",
   		"color": "red",
-  		"height": "38"
+  		"height": "26"
   	},
   	{
   		"id": "i5",
   		"mood": "Sad",
   		"color": "blue",
-  		"height": "35"
+  		"height": "28"
   	},
   	{
   		"id": "i6",
   		"mood": "Depressed",
   		"color": "grey",
-  		"height": "30"
+  		"height": "12"
   	}
   	],
 
@@ -91,16 +91,24 @@
 
     "themeSelect": [
     {
-      "id": "1",
-      "text": "Pastel"
+      "id": "0",
+      "text": "Original"
     },
     {
       "id": "1",
-      "text": "Dark"
+      "text": "Beach"
     },
     {
       "id": "2",
-      "text": "Light"
+      "text": "Pastel Party"
+    },
+    {
+      "id": "3",
+      "text": "Vibin"
+    },
+    {
+      "id": "4",
+      "text": "Starry Night"
     }
     ],
 
