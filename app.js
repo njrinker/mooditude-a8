@@ -52,6 +52,8 @@ app.post('/getTheme', index.getTheme);
 app.post('/getBubbles', index.getBubbles);
 app.post('/setColors', index.setColors);
 app.post('/getAll', index.getAll);
+app.post('/idMood', index.idMood);
+app.post('/setGraph', index.setGraph);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

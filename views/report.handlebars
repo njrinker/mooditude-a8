@@ -28,14 +28,14 @@
 			<th scope="col">Amount</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody style="font-size: medium;">
 		{{#each report}}
-			{{#unless @first}}
+			{{#if mood}}
 				<tr style="height:{{height}}%">
 					<th scope="row">{{mood}}</th>
 					<td style="background:{{color}}"><span>{{height}}%</span></td>
 				</tr>
-			{{/unless}}
+			{{/if}}
 		{{/each}}
 	</tbody>
 	</table>

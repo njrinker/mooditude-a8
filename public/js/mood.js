@@ -15,12 +15,14 @@ function initializePage() {
 	initMoodForm();
 	initGratForm();
 	initSetForm();
+	addForm();
+	colorSelector();
+	$(document).on('change', 'select', colorSelector);
 }
 //Function to initialize page with proper data
 function fillPage() {
 	$.post('getForms', setFormSelected);
 	$.post('getTheme', initTheme);
-
 	//Callback function that sets the selected mood on each form
 	function setFormSelected(result) {
 		var i;
@@ -48,16 +50,24 @@ function initMoodForm() {
 		function contMoodForm(result) {
 			console.log("Submitting moodForm...");
 			var i;
-			for (i = 0; i < result.length; i++) {
+			var num = document.getElementsByClassName('moodDiv');
+			for (i = 0; i < num.length; i++) {
   				var moodTime = $('#time' + i).val();
   				var moodText = document.getElementById('textarea' + i).value;
   				var moodOpt = document.getElementById('select' + i).selectedIndex;
-  				var moodId = i + 1;
+  				var moodId = i;
   				if (moodText.length != 0) {
   					$.post('addMood', { id: moodId, time: moodTime, text: moodText, opt: moodOpt});
+  					var add = document.getElementById('btn1')
+    				if (add) {
+    					add.removeAttribute('disabled');
+  					}
   				}
+  				else {
+  					alert("Please fill out any blank forms to save data and add another form");
+  				}
+  			}
   		}
-  	}
   });
 }
 //Function to take care of the pesky selectors in the mood forms
@@ -92,9 +102,12 @@ function initSetForm() {
 		var themeChoice = document.getElementById('themeselector').selectedIndex;
 		$.post('setTheme', { num: themeChoice});
 		var i;
+		var colors = ["#EDEAA0", "#A0EDA3", "#AFA0ED", "#FF5757", "#A0BFED", "#ABA8A8", "#03989E", "#FFBD59", "#EDA0A9", "#EDA0E1"];
+		var height = ["85", "32", "44", "26", "28", "12", "8", "5", "10", "13"];
 		for (i = 1; i <= 10; i++) {
 			var moodSet = document.getElementById('moodcolor' + i).value;
 			$.post('setMoods', { num: i, text: moodSet});
+			$.post('setGraph', { id: i, mood: moodSet, color: colors[i - 1], height: height[i - 1]});
 		}
 		window.location.href="/";
 	});
@@ -110,35 +123,60 @@ function checkForm() {
 }
 //Create a new form when the add button is pressed.	
 function addForm() {
-	var new_field = document.createElement("div");
-	new_field.setAttribute("class", "container");
+	$.post('getForms', contAddForm);
 
-	var time = document.createElement("input");
-	time.setAttribute("type", "time");
-	time.setAttribute("class", "time");
-	time.setAttribute("value", "00:00:00");
+	function contAddForm(result) {
+		var i;
+		var num = 0;
+		for (i = 0; i < result.length; i++) {
+			if (result[i].hasOwnProperty('text')) {
+				num++;
+			}
+		}
+		var new_field = document.createElement("div");
+		new_field.setAttribute("class", "container bkgr_color brdr_color moodDiv");
+		new_field.setAttribute("id", "form" + num);
 
-	var form = document.createElement("form");
+		var time = document.createElement("input");
+		time.setAttribute("type", "time");
+		time.setAttribute("class", "time bkgr_color");
+		time.setAttribute("id", "time" + num);
+		time.setAttribute("value", "00:00:00");
 
-	var text = document.createElement("textarea");
-	text.setAttribute("class", "mood");
-	text.setAttribute("cols", "100");
-	text.setAttribute("rows", "1");
-	text.setAttribute("required", "");
+		var form = document.createElement("form");
 
-	var select = document.createElement("select");
-	select.setAttribute("name", "grat_clr");
-	select.setAttribute("class", "grat_clr fas");
-	select.setAttribute("required", "");
+		var text = document.createElement("textarea");
+		text.setAttribute("class", "mood");
+		text.setAttribute("id", "textarea" + num);
+		text.setAttribute("cols", "100");
+		text.setAttribute("rows", "1");
+		text.setAttribute("required", "");
 
-	addOption(select);
+		var select = document.createElement("select");
+		select.setAttribute("name", "grat_clr");
+		select.setAttribute("class", "grat_clr fas bkgr_color mood_selector");
+		select.setAttribute("id", "select" + num);
+		select.setAttribute("required", "");
+
+		addOption(select);
 	
-	form.append(time);
-	form.append(text);
-	form.append(select);
-	new_field.append(form);
+		form.append(time);
+		form.append(text);
+		form.append(select);
+		new_field.append(form);
 
-    $(".entry").prepend(new_field);
+    	$("#forms").append(new_field);
+    	var add = document.getElementById('btn1')
+    	if (add) {
+    		add.setAttribute('disabled', "");
+    	}
+    	initColors();
+    	setMoodForm(num);
+	}
+}
+//Function to initialize the id of a form
+function setMoodForm(index) {
+	$.post('idMood', { id: index});
 }
 //Helper function to create selector options for the form.
 function addOption(select) {
@@ -164,6 +202,7 @@ function addOption(select) {
 				select.append(storage[i]);
 			}
 		}
+		initColors();
 	}
 }
 /*Open side settings menu*/
@@ -259,96 +298,96 @@ function initColors() {
 				var btn_color = "#A4DAE8";
 				var bkgr_color = "#5FCAE1";
 				var brdr_color = "#F9A9AF";
-				var b1 = "yellow";
-				var b2 = "green";
-				var b3 = "purple";
-				var b4 = "red";
-				var b5 = "blue";
-				var b6 = "grey";
-				var b7 = "cyan";
-				var b8 = "orange";
-				var b9 = "maroon";
-				var b10 = "violet";
+				var b1 = "#EDEAA0";
+				var b2 = "#A0EDA3";
+				var b3 = "#AFA0ED";
+				var b4 = "#FF5757";
+				var b5 = "#A0BFED";
+				var b6 = "#ABA8A8";
+				var b7 = "#03989E";
+				var b8 = "#FFBD59";
+				var b9 = "#EDA0A9";
+				var b10 = "#EDA0E1";
 				break;
 			case "1":
 				var nav_color = "#E8B594";
 				var btn_color = "#E8B594";
 				var bkgr_color = "#A4DAEB";
 				var brdr_color = "#EBBB9C";
-				var b1 = "yellow";
-				var b2 = "green";
-				var b3 = "purple";
-				var b4 = "red";
-				var b5 = "blue";
-				var b6 = "grey";
-				var b7 = "cyan";
-				var b8 = "orange";
-				var b9 = "maroon";
-				var b10 = "violet";
+				var b1 = "#EDEAA0";
+				var b2 = "#A0EDA3";
+				var b3 = "#AFA0ED";
+				var b4 = "#FF5757";
+				var b5 = "#A0BFED";
+				var b6 = "#ABA8A8";
+				var b7 = "#03989E";
+				var b8 = "#FFBD59";
+				var b9 = "#EDA0A9";
+				var b10 = "#EDA0E1";
 				break;
 			case "2":
 				var nav_color = "#F9CCFF";
 				var btn_color = "#F9CCFF";
 				var bkgr_color = "#D5D6EA";
 				var brdr_color = "#F5D5CB";
-				var b1 = "yellow";
-				var b2 = "green";
-				var b3 = "purple";
-				var b4 = "red";
-				var b5 = "blue";
-				var b6 = "grey";
-				var b7 = "cyan";
-				var b8 = "orange";
-				var b9 = "maroon";
-				var b10 = "violet";
+				var b1 = "#EDEAA0";
+				var b2 = "#A0EDA3";
+				var b3 = "#AFA0ED";
+				var b4 = "#FF5757";
+				var b5 = "#A0BFED";
+				var b6 = "#ABA8A8";
+				var b7 = "#03989E";
+				var b8 = "#FFBD59";
+				var b9 = "#EDA0A9";
+				var b10 = "#EDA0E1";
 				break;
 			case "3":
 				var nav_color = "#FFF6A7";
 				var btn_color = "#FFF6A7";
 				var bkgr_color = "#A5F8CE";
 				var brdr_color = "#FEC9A7";
-				var b1 = "yellow";
-				var b2 = "green";
-				var b3 = "purple";
-				var b4 = "red";
-				var b5 = "blue";
-				var b6 = "grey";
-				var b7 = "cyan";
-				var b8 = "orange";
-				var b9 = "maroon";
-				var b10 = "violet";
+				var b1 = "#EDEAA0";
+				var b2 = "#A0EDA3";
+				var b3 = "#AFA0ED";
+				var b4 = "#FF5757";
+				var b5 = "#A0BFED";
+				var b6 = "#ABA8A8";
+				var b7 = "#03989E";
+				var b8 = "#FFBD59";
+				var b9 = "#EDA0A9";
+				var b10 = "#EDA0E1";
 				break;
 			case "4":
 				var nav_color = "#A2C4E0";
 				var btn_color = "#A2C4E0";
 				var bkgr_color = "#FFCC66";
 				var brdr_color = "#336699";
-				var b1 = "yellow";
-				var b2 = "green";
-				var b3 = "purple";
-				var b4 = "red";
-				var b5 = "blue";
-				var b6 = "grey";
-				var b7 = "cyan";
-				var b8 = "orange";
-				var b9 = "maroon";
-				var b10 = "violet";
+				var b1 = "#EDEAA0";
+				var b2 = "#A0EDA3";
+				var b3 = "#AFA0ED";
+				var b4 = "#FF5757";
+				var b5 = "#A0BFED";
+				var b6 = "#ABA8A8";
+				var b7 = "#03989E";
+				var b8 = "#FFBD59";
+				var b9 = "#EDA0A9";
+				var b10 = "#EDA0E1";
 				break;
 			default:
 				var nav_color = "#A4DAE8";
 				var btn_color = "#A4DAE8";
 				var bkgr_color = "#5FCAE1";
 				var brdr_color = "#F9A9AF";
-				var b1 = "yellow";
-				var b2 = "green";
-				var b3 = "purple";
-				var b4 = "red";
-				var b5 = "blue";
-				var b6 = "grey";
-				var b7 = "cyan";
-				var b8 = "orange";
-				var b9 = "maroon";
-				var b10 = "violet";
+				var b1 = "#EDEAA0";
+				var b2 = "#A0EDA3";
+				var b3 = "#AFA0ED";
+				var b4 = "#FF5757";
+				var b5 = "#A0BFED";
+				var b6 = "#ABA8A8";
+				var b7 = "#03989E";
+				var b8 = "#FFBD59";
+				var b9 = "#EDA0A9";
+				var b10 = "#EDA0E1";
 		}
 		$.post('setColors', { nav_color: nav_color, btn_color: btn_color, bkgr_color: bkgr_color, brdr_color: brdr_color, b1: b1, b2: b2, b3: b3, b4: b4, b5: b5, b6: b6, b7: b7, b8: b8, b9: b9, b10: b10}, finishInitColors);
 		//Callback function to finish original task
@@ -409,6 +448,53 @@ function initColors() {
 			}
 			for (i = 0; i < b10.length; i++) {
 				b10[i].style.color = result.b10;
+			}
+		}
+	}
+}
+//Function to handle coloring the selector when a mood is selected
+function colorSelector() {
+	$.post('getAll', contColorSelector);
+	//Callback function to continue original function
+	function contColorSelector(result) {
+		var i;
+		var index = result.themeChoice[0].num;
+		var mood_selector = document.getElementsByClassName('mood_selector');
+		for (i = 0; i < mood_selector.length; i++) {
+			var curr = mood_selector[i].selectedIndex - 1;
+			switch(curr) {
+				case 0:
+					mood_selector[i].style.color = "#EDEAA0";
+					break;
+				case 1:
+					mood_selector[i].style.color = "#A0EDA3";
+					break;
+				case 2:
+					mood_selector[i].style.color = "#AFA0ED";
+					break;
+				case 3:
+					mood_selector[i].style.color = "#FF5757";
+					break;
+				case 4:
+					mood_selector[i].style.color = "#A0BFED";
+					break;
+				case 5:
+					mood_selector[i].style.color = "#ABA8A8";
+					break;
+				case 6:
+					mood_selector[i].style.color = "#03989E";
+					break;
+				case 7:
+					mood_selector[i].style.color = "#FFBD59";
+					break;
+				case 7:
+					mood_selector[i].style.color = "#EDA0A9";
+					break;
+				case 9:
+					mood_selector[i].style.color = "#EDA0E1";
+					break;
+				default:
+					mood_selector[i].style.color = "black";
 			}
 		}
 	}

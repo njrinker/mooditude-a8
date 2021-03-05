@@ -43,17 +43,18 @@
   <!--All of the form items will be rendered here, but intializing them is taken care of in mood.js-->
   <div class="entry">
     <form id="moodForm">
-    {{#each form}}
-      <div class="container clr_chng bkgr_color brdr_color" id="form{{id}}">
-          <input type="time" class="time clr_chng bkgr_color" id="time{{id}}" value="{{time}}">
-          <textarea class="mood clr_chng" id="textarea{{id}}" cols="100" rows="1">{{text}}</textarea>
-          <select name="grat_clr" class="grat_clr fas bkgr_color" id="select{{id}}" aria-hidden="true">
-          <!--{{#each mood}}
-            <option value="fas fa-circle" id="option{{clrid}}" style="color: {{color}}" {{selected}} {{disabled}} {{hidden}}>&#xf111 {{mood}}</option>
-          {{/each}}-->
+    <div id="forms">
+      {{#each form}}
+        {{#if text}}
+        <div class="container clr_chng bkgr_color brdr_color moodDiv" id="form{{id}}">
+            <input type="time" class="time clr_chng bkgr_color" id="time{{id}}" value="{{time}}">
+            <textarea class="mood clr_chng" id="textarea{{id}}" cols="100" rows="1">{{text}}</textarea>
+            <select name="grat_clr" class="grat_clr fas bkgr_color mood_selector" id="select{{id}}" aria-hidden="true">
           </select>
-      </div>
-    {{/each}}
+        </div>
+        {{/if}}
+      {{/each}}
+    </div>
     <button type="submit" class="button b_left fa-lg clr_chng btn_color" id="btns" style="font-size: xx-large; margin-top: 1.3em"><i class="fas fa-save"></i><b> Save</b></button>
     </form>
   </div>
