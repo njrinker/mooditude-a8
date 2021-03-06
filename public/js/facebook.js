@@ -15,6 +15,6 @@ function statusChangeCallback(response) {
     // Logged into your app and Facebook.
         console.log('Successfully logged in with Facebook');
         $(".facebookLogin").hide();
-        window.location.href="/";
+        window.location.href="/index";
   }
 }
