@@ -12,12 +12,12 @@
 <body class="lrg_font">
 	<!--Home button and navigation-->
 	<div class="header float">
-    	<button class="hbutton b_nav b_left nav_color" id="btnh" onclick="location.href='/title'"><i class="fas fa-home fa-3x"></i></button>
+    	<button class="hbutton b_nav b_left nav_color" id="btnh" onclick="location.href='/index'"><i class="fas fa-home fa-3x"></i></button>
 		<h1 style="text-align:center">What are you grateful for?</h1>
 	</div>
 	<br><br><br>
 	<!--Text inputs are rendered here.-->
-	<h2 style="text-align:center">Enter at least 5 things you were grateful for today</h2>
+	<h2 style="text-align:center">Try to enter at least 5 things you were grateful for today</h2>
 	<form id="gratForm" style="font-size: xx-large">	
 		{{#each input}}
 		<div class="container bkgr_color brdr_color">
@@ -29,7 +29,7 @@
 	</form>
 	<!--Main navigation buttons, rendered at the bottom of the screen-->
 	<div class="fas float b_bottom">
-    	<button class="button b_left fa-lg btn_color" onclick="location.href='/'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
+    	<button class="button b_left fa-lg btn_color" onclick="location.href='/index'"><i class="fas fa-arrow-left"></i><b> Back</b></button>
     	<button class="button b_right fa-lg btn_color" onclick="location.href='/report'"><b>Next </b><i class="fas fa-arrow-right"></i></button>
 	</div>
 </body>

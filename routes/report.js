@@ -7,6 +7,7 @@ exports.view = function(req, res){
 //Updates JSON data with values from initGratForm in mood.js
 exports.fillReport = function(req, res){
   var gratData = req.body;
-  mood.input.push(gratData);
+  const num = req.body.num + 10;
+  mood.input.splice(num, 1, gratData);
   res.send(gratData);
 };

@@ -89,7 +89,7 @@ function initGratForm() {
   		var gratNum = document.getElementById('grat_lbl' + i).innerHTML;
   		$.post('addGrat', { text: gratText, num: gratNum});
   		if (gratText.length != 0) {
-  			$.post('fillReport', {text: gratText});
+  			$.post('fillReport', {text: gratText, num: gratNum});
   		}
   	}
   });
@@ -117,7 +117,7 @@ function checkForm() {
     var a = document.forms["login_form"]["username_in"].value;
     var b = document.forms["login_form"]["password_in"].value;
     if (a && b) {
-    	window.location.href="/";
+    	window.location.href="/index";
     	return false;
     }
 }
@@ -222,8 +222,9 @@ function openSet() {
 		document.getElementById("textarea" + i).style.backgroundColor = "rgba(0,0,0,0)";
   		document.getElementById("form" + i).style.backgroundColor = "rgba(0,0,0,0)";
   		document.getElementById("time" + i).style.backgroundColor = "rgba(0,0,0,0)";
+  		document.getElementById("form" + i).style.border = "0";
   		document.getElementById("textarea" + i).style.border = "0"
-  		document.getElementById("time" + i).style.border = "0";
+  		//document.getElementById("time" + i).style.border = "0";
 	}
   }
 }
@@ -283,6 +284,8 @@ function closeSet() {
   		document.getElementById("time" + i).style.backgroundColor = bkgr_color;
   		document.getElementById("btns").style.backgroundColor = btn_color;
   		document.getElementById("btnl").style.backgroundColor = btn_color;
+  		document.getElementById("form" + i).style.border = "5px solid" + brdr_color;
+  		//document.getElementById("textarea" + i).style.border = "0"
 	}
   }
 }
@@ -461,36 +464,36 @@ function colorSelector() {
 		var index = result.themeChoice[0].num;
 		var mood_selector = document.getElementsByClassName('mood_selector');
 		for (i = 0; i < mood_selector.length; i++) {
-			var curr = mood_selector[i].selectedIndex - 1;
+			var curr = result.form[i].opt;
 			switch(curr) {
-				case 0:
+				case "0":
 					mood_selector[i].style.color = "#EDEAA0";
 					break;
-				case 1:
+				case "1":
 					mood_selector[i].style.color = "#A0EDA3";
 					break;
-				case 2:
+				case "2":
 					mood_selector[i].style.color = "#AFA0ED";
 					break;
-				case 3:
+				case "3":
 					mood_selector[i].style.color = "#FF5757";
 					break;
-				case 4:
+				case "4":
 					mood_selector[i].style.color = "#A0BFED";
 					break;
-				case 5:
+				case "5":
 					mood_selector[i].style.color = "#ABA8A8";
 					break;
-				case 6:
+				case "6":
 					mood_selector[i].style.color = "#03989E";
 					break;
-				case 7:
+				case "7":
 					mood_selector[i].style.color = "#FFBD59";
 					break;
-				case 7:
+				case "7":
 					mood_selector[i].style.color = "#EDA0A9";
 					break;
-				case 9:
+				case "9":
 					mood_selector[i].style.color = "#EDA0E1";
 					break;
 				default:

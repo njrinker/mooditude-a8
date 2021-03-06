@@ -38,10 +38,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', index.view);
+app.get('/', title.view);
 app.get('/gratitude', gratitude.view);
 app.get('/report', report.view);
-app.get('/title', title.view);
+app.get('/index', index.view);
 app.post('/addMood', index.addMood);
 app.post('/setTheme', index.setTheme);
 app.post('/setMoods', index.setMoods);

@@ -7,57 +7,57 @@
   	{
   		"id": "1",
   		"mood": "Happy",
-  		"color": "yellow",
+  		"color": "#EDEAA0",
   		"height": "85"
   	},
   	{
   		"id": "2",
   		"mood": "Energetic",
-  		"color": "green",
+  		"color": "#A0EDA3",
   		"height": "32"
   	},
   	{
   		"id": "3",
   		"mood": "Motivated",
-  		"color": "purple",
+  		"color": "#AFA0ED",
   		"height": "44"
   	},
   	{
   		"id": "4",
   		"mood": "Angry",
-  		"color": "red",
+  		"color": "#FF5757",
   		"height": "26"
   	},
   	{
   		"id": "5",
   		"mood": "Sad",
-  		"color": "blue",
+  		"color": "#A0BFED",
   		"height": "28"
   	},
   	{
   		"id": "6",
   		"mood": "Depressed",
-  		"color": "grey",
+  		"color": "#ABA8A8",
   		"height": "12"
   	},
     {
       "id": "7",
-      "color": "cyan",
+      "color": "#03989E",
       "height": "8"
     },
     {
       "id": "8",
-      "color": "orange",
+      "color": "#FFBD59",
       "height": "5"
     },
     {
       "id": "9",
-      "color": "maroon",
+      "color": "#EDA0A9",
       "height": "10"
     },
     {
       "id": "10",
-      "color": "violet",
+      "color": "#EDA0E1",
       "height": "13"
     }
   	],
