@@ -11,7 +11,13 @@
       margin-bottom: 5%;
       width: 45%;
     }
-    /*Styling for input form on title screen (will be deprecated when login is replaced)*/
+    /*Styling for quote*/
+    .quote {
+      text-align: center;
+      margin-left: 20%;
+      margin-right: 20%
+    }
+    /*Styling for input form on title screen*/
     .input {
       display: block;
       margin-left: auto;
@@ -22,14 +28,14 @@
       font-size: xx-large;
       border: 0px;
     }
-    /*Styling for label on the input form on title screen (will be deprecated when login is replaced)*/
+    /*Styling for label on the input form on title screen*/
     .label {
       display: block;
       margin-left: auto;
       margin-right: auto;
       float: left;
     }
-    /*Styling for login container on title screen (will be deprecated when login is replaced)*/
+    /*Styling for login container on title screen*/
     .login {
       max-width: 40%;
       margin: auto !important;
