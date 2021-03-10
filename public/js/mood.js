@@ -460,9 +460,10 @@ function colorSelector() {
 		var mood_selector = document.getElementsByClassName('mood_selector');
 		for (i = 0; i < mood_selector.length; i++) {
 			if (result.form[i].opt) {
-				var curr = result.form[i].opt;
+				var curr = result.form[i].opt - 1;
+				console.log("Opt: " + curr);
 				switch(curr) {
-					case "0":
+					case 0:
 						mood_selector[i].style.color = "#EDEAA0";
 						break;
 					case "1":
@@ -498,6 +499,7 @@ function colorSelector() {
 			}
 			else {
 				var curr = mood_selector[i].selectedIndex - 1;
+				console.log("Index: " + curr);
 				switch(curr) {
 					case 0:
 						mood_selector[i].style.color = "#EDEAA0";
