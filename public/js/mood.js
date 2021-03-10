@@ -461,36 +461,35 @@ function colorSelector() {
 		for (i = 0; i < mood_selector.length; i++) {
 			if (result.form[i].opt) {
 				var curr = result.form[i].opt - 1;
-				console.log("Opt: " + curr);
 				switch(curr) {
 					case 0:
 						mood_selector[i].style.color = "#EDEAA0";
 						break;
-					case "1":
+					case 1:
 						mood_selector[i].style.color = "#75DF79";
 						break;
-					case "2":
+					case 2:
 						mood_selector[i].style.color = "#AFA0ED";
 						break;
-					case "3":
+					case 3:
 						mood_selector[i].style.color = "#FF5757";
 						break;
-					case "4":
+					case 4:
 						mood_selector[i].style.color = "#14A3F6";
 						break;
-					case "5":
+					case 5:
 						mood_selector[i].style.color = "#ABA8A8";
 						break;
-					case "6":
+					case 6:
 						mood_selector[i].style.color = "#03989E";
 						break;
-					case "7":
+					case 7:
 						mood_selector[i].style.color = "#FF914D";
 						break;
-					case "8":
+					case 8:
 						mood_selector[i].style.color = "#EDA0A9";
 						break;
-					case "9":
+					case 9:
 						mood_selector[i].style.color = "#EDA0E1";
 						break;
 					default:
@@ -499,7 +498,6 @@ function colorSelector() {
 			}
 			else {
 				var curr = mood_selector[i].selectedIndex - 1;
-				console.log("Index: " + curr);
 				switch(curr) {
 					case 0:
 						mood_selector[i].style.color = "#EDEAA0";
