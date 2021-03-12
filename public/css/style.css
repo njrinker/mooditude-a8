@@ -159,6 +159,9 @@
     .b_center {
       left: 41%;
     }
+    #btn1 {
+      margin-top: 15px;
+    }
     /*Renders icons correctly*/
     .fas option {
       font-weight: 900;

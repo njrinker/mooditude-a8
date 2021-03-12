@@ -61,6 +61,7 @@ function initMoodForm() {
   					var add = document.getElementById('btn1')
     				if (add) {
     					add.removeAttribute('disabled');
+    					add.classList.remove("disabled");
   					}
   				}
   				else {
@@ -169,6 +170,7 @@ function addForm() {
     	var add = document.getElementById('btn1')
     	if (add) {
     		add.setAttribute('disabled', "");
+    		add.setAttribute("class", "disabled button b_right fa-lg btn_color");
     	}
     	initColors();
     	setMoodForm(num);
